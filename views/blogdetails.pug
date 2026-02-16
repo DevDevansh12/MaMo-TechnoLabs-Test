@@ -1,991 +1,414 @@
-doctype html
-head
-  meta(charset='utf-8')
-  meta(name='description' content='MaMo Technologies empowers businesses through technology')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='icon' href='images/favicon.ico' type='image/vnd.microsoft.icon')
-  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css')
-  title Blog Details - MaMo Technologies
-  link(rel='stylesheet' media='all' href='css/style2.css')
-  link(rel='stylesheet' media='all' href='css/style1.css')
-  script(src='js/jquery.form.min.js')
-  script(async='' src='https://www.googletagmanager.com/gtag/js?id=G-1BESF224BJ')
-  script.
-    window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-1BESF224BJ');
-  // Link of CSS Files
-  link(rel='stylesheet' href='css/css/animate.min.css')
-  link(rel='stylesheet' href='css/css/swiper-bundle.min.css')
-  link(rel='stylesheet' href='css/css/flaticon_mycollection.css')
-  link(rel='stylesheet' href='css/css/remixicon.css')
-  link(rel='stylesheet' href='css/css/scrollCue.min.css')
-  link(rel='stylesheet' href='css/css/style.css')
-  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
-a.visually-hidden.focusable.skip-link(href='#main-content')
-  | Skip to main content
-.common-header-wrapper
-  header.common-header
+extends layout
+
+block content
+
+  // JSON-LD Schema for Article
+  script(type="application/ld+json").
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "#{blog.title}",
+      "description": "#{blog.metaDescription || ''}",
+      "image": "#{blog.bannerImage ? (blog.bannerImage.startsWith('http') ? blog.bannerImage : 'http://localhost:3001' + blog.bannerImage) : ''}",
+      "author": {
+        "@type": "Organization",
+        "name": "#{blog.author || 'MaMo TechnoLabs'}",
+        "url": "http://localhost:3001"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "#{blog.publisher ? blog.publisher.name : 'MaMo TechnoLabs'}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "http://localhost:3001#{blog.publisher && blog.publisher.logo ? blog.publisher.logo : '/images/logo.png'}"
+        }
+      },
+      "datePublished": "#{blog.createdAt.toISOString()}",
+      "dateModified": "#{blog.updatedAt ? blog.updatedAt.toISOString() : blog.createdAt.toISOString()}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "#{blog.canonicalUrl || ''}"
+      },
+      "keywords": "#{blog.focusKeywords ? blog.focusKeywords.join(', ') : ''}"
+    }
+
+  // Page Banner
+  .blog-banner-section
     .container
-      .row.align-items-center
-        .col-md-2.col-lg-2.col-6
-          a.logo-a(href='/')
-            img(src='images/logo.png' alt='MaMo  log')
-        .col-md-7.col-lg-8.col-3.common-header-col-outer
-          #menu.hide-mobile.show-desktop
-            ul.common-header-ul
-              li.dropdown.mega-dropdown
-                a.dropdown-toggle(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false')
-                  | What we do
-                  i.ph-caret-down
-                .dropdown-menu.mega-dropdown-menu
-                  .container
-                    .row
-                      .col-md-4.link-col-left
-                        #v-pills-tab.nav-pills(href='#' role='tablist' aria-orientation='vertical')
-                          a#v-pills-services-tab.nav-link-a(href='#' data-bs-toggle='pill' data-bs-target='#v-pills-services' type='button' role='tab' aria-controls='v-pills-services' aria-selected='false')  Development &amp; Engineering Services 
-                          a#v-pills-industry-tab.nav-link-a(href='#' data-bs-toggle='pill' data-bs-target='#v-pills-industry' type='button' role='tab' aria-controls='v-pills-industry' aria-selected='false') Business, Growth &amp; Support Services 
-                          a#v-pills-products-tab.nav-link-a(href='overview.html' data-bs-toggle='pill' data-bs-target='#v-pills-products' type='button' role='tab' aria-controls='v-pills-products' aria-selected='false') About Us
-                      .col-md-8.link-col-right
-                        #v-pills-tabContent.tab-content
-                          #v-pills-overview.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-overview-tab' tabindex='0')
-                            .menu-para
-                              h6 Start Your Digital Transformation.
-                              p.para
-                                | Calling India home, while transforming stories in 50+ countries, MaMo has helped industry leaders innovate ahead for 20+ years, leveraging the best, most robust, and the most exciting digital technologies out there. Here&rsquo;s our story.
-                              p
-                                a.know-more-btn(href='about-us')
-                                  | Know
-                                  | More
-                          #v-pills-services.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-services-tab' tabindex='0')
-                            .menu-para
-                              h6 Core Development &amp; Engineering Services
-                              .row
-                                .col-md-6
-                                  .menu-para-col
-                                    a.nav-link-b(href='software-development')  Software Development&ZeroWidthSpace; 
-                                    a.nav-link-b(href='website-development')  Web App Development 
-                                    a.nav-link-b(href='custom-app') Custom Mobile App Development
-                                .col-md-6
-                                  .menu-para-col
-                                    a.nav-link-b(href='frontend-development')
-                                      | Frontend Development
-                                    a.nav-link-b(href='web-portal')  Web Portal Development
-                                    a.nav-link-b(href='qa-testing')  QA and Software Testing
-                          #v-pills-industry.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-industry-tab' tabindex='0')
-                            .menu-para
-                              h6 Business, Growth &amp; Support Services
-                              .row
-                                .col-md-6
-                                  .menu-para-col
-                                    a.nav-link-b(href='itstaff-augmentation')  IT Staff Augmentation 
-                                    a.nav-link-b(href='digital-transformation')  Digital Marketing Services
-                                .col-md-6
-                                  .menu-para-col
-                                    a.nav-link-b(href='virtual-assistant-services')
-                                      | Virtual Assistant Services
-                                    a.nav-link-b(href='packaging-design') Packaging Design Services
-                          #v-pills-products.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-products-tab' tabindex='0')
-              //
-                <li class="dropdown mega-dropdown">
-                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"
-                data-bs-auto-close="outside" aria-expanded="false">Who we are<i
-                class="ph-caret-down"></i></a>
-                <div class="dropdown-menu mega-dropdown-menu">
-                <div class="container">
-                <div class="row">
-                <div class="col-md-4 link-col-left">
-                <div class="nav-pills" id="a-pills-tab" href="#" role="tablist"
-                aria-orientation="vertical">
-                <p><a class="nav-link-a active" href="about-us">About Us </a><a
-                class="nav-link-a" href="careers-life-at-MaMo.html">Life
-                at MaMo </a></p>
-                <p><a class="nav-link-a careers-life-btn-a"
-                href="careers-life-at-MaMo.html#contact-form-sect.html">Careers</a>
-                </p>
-                <p><a class="nav-link-a"
-                href="corporate-social-responsibility.html">Corporate Social
-                Responsibility </a><a class="nav-link-a"
-                href="contact">Contact Us </a></p>
-                </div>
-                </div>
-                <div class="col-md-8 link-col-right">
-                <div class="tab-content" id="a-pills-tabContent">
-                <div class="tab-pane fade show active" id="a-pills-about-us"
-                role="tabpanel" aria-labelledby="a-pills-about-us-tab"
-                tabindex="0">
-                <div class="menu-para">
-                <h6>About MaMo </h6>
-                <p class="para">Calling India home, while transforming
-                stories in 50+ countries, MaMo  has helped industry
-                leaders innovate ahead for 20+ years, leveraging the
-                best, most robust, and the most exciting digital
-                technologies out there. Here’s our story.</p>
-                <p><a class="know-more-btn" href="about-us">Know
-                More</a></p>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </li>
-              li.dropdown.mega-dropdown
-                a.dropdown-toggle(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false')
-                  | Blog
-                  i.ph-caret-down
-                .dropdown-menu.mega-dropdown-menu
-                  .container
-                    .row
-                      .col-md-4.link-col-left
-                        #b-pills-tab.nav-pills(role='tablist' aria-orientation='vertical')
-                          a#b-pills-about-us-tab.nav-link-a.active(href='blog' type='button' role='tab' aria-controls='b-pills-about-us' aria-selected='true') Blog 
-                      .col-md-8.link-col-right
-                        #b-pills-tabContent.tab-content
-                          #b-pills-about-us.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='b-pills-about-us-tab' tabindex='0')
-                            .menu-para
-                              .row.row-adj
-                                h6 Our Blogs 
-                                br
-                                p.para
-                                  | At MaMo TechnoLabs, we share expert insights on software development,
-                                  | web technologies, business growth, and digital innovation.
-                                  | Explore our blogs to stay updated with the latest trends, strategies, and practical guides for building smarter solutions.
-        .col-md-3.col-lg-2.col-3
-          .right-side-menu-w
-            .btn-row.hide-mobile
-              div
-                a.btn-click(href='contact')
-                  div
-                  div
-                    button.btoptop Contact Us
-            .hide-desktop.show-mobile
-              a(href='#')
-                #toggle.toggle-menu
-                  .one
-                  .two
-                  .three
-  .block.block-block-content.block-block-content03dabb50-afb4-4728-bab3-6eadb5bb7223
-    .hide-desktop.show-mobile
-      .mobile-menu(style='display:none;')
-        nav#column_left
-          ul.nav-list
-            li
-              a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu1' aria-expanded='false') What we do&nbsp;
-              ul#submenu1.nav-list.collapse(aria-expanded='false')
-                li
-                  // <a href="overview.html">Overview</a>
-                li
-                  a(data-bs-toggle='collapse' data-bs-target='#submenu2' aria-expanded='false') Development &amp; Engineering Services 
-                  ul#submenu2.nav-list.collapse(aria-expanded='false')
-                    li
-                      a(href='software-development') Software Development
-                    li
-                      a(href='website-development')
-                        | Web App Development
-                    li
-                      a(href='custom-app')
-                        | Custom Mobile App Development
-                    li
-                      a(href='frontend-development')
-                        | Frontend Development
-                    li
-                      a(href='web-portal')
-                        | Web Portal Development
-                    li
-                      a(href='qa-testing')
-                        | QA and Software Testing
-                li
-                  a(data-bs-toggle='collapse' data-bs-target='#submenu3' aria-expanded='false') Business, Growth &amp; Support Services 
-                  ul#submenu3.nav-list.collapse(aria-expanded='false')
-                    li
-                      a(href='itstaff-augmentation') IT Staff Augmentation
-                    li
-                      a(href='digital-transformation')
-                        | Digital Marketing Services
-                    li
-                      a(href='virtual-assistant-services')
-                        | Virtual Assistant Services
-                    li
-                      a(href='packaging-design')
-                        | Packaging Design Services
-                li
-                  a(href='about-us') About us
-            //
-              <li><a class="accordion-heading" data-bs-toggle="collapse" data-bs-target="#submenu21"
-              aria-expanded="false">Who we are </a>
-              <ul class="nav-list collapse" id="submenu21" aria-expanded="false">
-              <li><a href="about-us">About Us</a></li>
-              <li><a href="careers-life-at-MaMo.html">Life at MaMo </a></li>
-              <li><a href="careers-life-at-MaMo.html #contact-form-sect" target="_blank">Careers</a>
-              </li>
-              <li><a href="corporate-social-responsibility.html">Corporate Social Responsibility</a>
-              </li>
-              <li><a href="contact">Contact Us</a></li>
-              </ul>
-              </li>
-            li
-              a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu31' aria-expanded='false')
-                | Blog
-              ul#submenu31.nav-list.collapse
-                li
-                  a(href='blog') Blog
-              div(style='margin-top: 10px; padding: 10px 120px;')
-                a(href='/contact' style='display: block; text-align: center; background-color: white; color: black; padding: 15px 40px; border: 2px solid black; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 16px;') Contact Us
-main.main
-  .dialog-off-canvas-main-canvas(data-off-canvas-main-canvas='')
-    .layout-container
-      header(role='banner')
-        div
-          .dropdown-menu.mega-dropdown-menu
-            .container
-              .row
-                .col-md-4.link-col-left
-                  #v-pills-tab.nav-pills(href='#' role='tablist' aria-orientation='vertical')
-                    //
-                      <a class="nav-link-a active"
-                      href="overview.html">Overview </a>
-                    a#v-pills-services-tab.nav-link-a(href='#' data-bs-toggle='pill' data-bs-target='#v-pills-services' type='button' role='tab' aria-controls='v-pills-services' aria-selected='false')
-                      | Development &amp; Engineering Services
-                    a#v-pills-industry-tab.nav-link-a(href='#' data-bs-toggle='pill' data-bs-target='#v-pills-industry' type='button' role='tab' aria-controls='v-pills-industry' aria-selected='false') Business, Growth &amp; Support services 
-                    a#v-pills-products-tab.nav-link-a(href='#' data-bs-toggle='pill' data-bs-target='#v-pills-products' type='button' role='tab' aria-controls='v-pills-products' aria-selected='false') About Us 
-                .col-md-8.link-col-right
-                  #v-pills-tabContent.tab-content
-                    #v-pills-overview.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-overview-tab' tabindex='0')
-                      .menu-para
-                        h6 We build the change that&apos;s needed
-                        p.para
-                          | Discover how MaMo , a global tech innovator, excels
-                          | in leveraging emerging technologies such as AI/ML, Fintech,
-                          | Blockchain, and Machine Learning to revolutionize industries and
-                          | enhance business efficiency worldwide.
-                        p
-                          a.know-more-btn(href='overview.html') Know More
-                    #v-pills-services.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-services-tab' tabindex='0')
-                      .menu-para
-                        h6 Core Development &amp; Engineering Services
-                        .row
-                          .col-md-6
-                            .menu-para-col
-                              a.nav-link-b(href='software-development') Software Development 
-                              a.nav-link-b(href='website-development')
-                                | Web App Development
-                              a.nav-link-b(href='custom-app')
-                                | Custom Mobile App Development
-                          .col-md-6
-                            .menu-para-col
-                              a.nav-link-b(href='frontend-development') Frontend Development
-                              a.nav-link-b(href='web-portal') Web Portal Development
-                              a.nav-link-b(href='qa-testing')
-                                | QA and Software Testing
-                    #v-pills-industry.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-industry-tab' tabindex='0')
-                      .menu-para
-                        h6 Business , Growth &amp; Support Services
-                        .row
-                          .col-md-6
-                            .menu-para-col
-                              a.nav-link-b(href='itstaff-augmentation')
-                                | IT Staff Augmentation
-                              a.nav-link-b(href='digital-transformation')
-                                | Digital Marketing Services
-                              a.nav-link-b(href='virtual-assistant-services')
-                                | Virtual Assistant Services
-                              a.nav-link-b(href='packaging-design')
-                                | Packaging Design Services
-                    #v-pills-products.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-products-tab' tabindex='0')
-                      .menu-para
-                        h6 Homegrown AI/ML industry platforms
-                        .row
-                          .col-md-6
-                            .menu-para-col
-                              a.nav-link-b(href='https://predictsense.io/' target='_blank') PredictSense&nbsp;
-                              a.nav-link-b(href='https://iotsense.io/' target='_blank') IoTSense 
-                              a.nav-link-b.cursor-not-allowed(style='opacity:0;visibility:hidden;' href='#')
-                                | VisionSense 
-                                span.we-re-hiring Coming soon
-          .dropdown-menu.mega-dropdown-menu
-            .container
-              .row
-                .col-md-4.link-col-left
-                  #a-pills-tab.nav-pills(href='#' role='tablist' aria-orientation='vertical')
-                    p
-                      a.nav-link-a.active(href='about-us') About Us 
-                      a.nav-link-a(href='careers-life-at-MaMo.html ') Life at MaMo 
-                    p
-                      a.nav-link-a.careers-life-btn-a(href='careers-life-at-MaMo.html #contact-form-sect.html') Careers
-                    p
-                      a.nav-link-a(href='corporate-social-responsibility.html')
-                        | Corporate
-                        | Social Responsibility
-                      a.nav-link-a(href='contact') Contact Us&nbsp;
-                .col-md-8.link-col-right
-                  #a-pills-tabContent.tab-content
-                    #a-pills-about-us.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='a-pills-about-us-tab' tabindex='0')
-                      .menu-para
-                        h6 About MaMo 
-          .dropdown-menu.mega-dropdown-menu
-            .container
-              .row
-                .col-md-4.link-col-left
-                  #b-pills-tab.nav-pills(role='tablist' aria-orientation='vertical')
-                    a#b-pills-about-us-tab.nav-link-a.active(href='MaMo -articles.html' type='button' role='tab' aria-controls='b-pills-about-us' aria-selected='true') Articles and Blog Report 
-                    a.nav-link-a(href='latest-news-and-events.html')
-                      | Newsroom and Events
-                    a.nav-link-a(href='case-studies.html') Case Studies&nbsp;
-                .col-md-8.link-col-right
-                  #b-pills-tabContent.tab-content
-                    #b-pills-about-us.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='b-pills-about-us-tab' tabindex='0')
-                      .menu-para
-                        .row.row-adj
-                          .col-md-6
-                            .menu-card-h
-                              .tag-a
-                                a(href='MaMo -articles/predictsense-revolutionizing-decision-making-in-banking.html')
-                                  span FINTECH
-                              p.para
-                                a(href='MaMo -articles/predictsense-revolutionizing-decision-making-in-banking.html')
-                                  | Revolutionizing
-                                  | Decision Making in Banking
-                          .col-md-6
-                            .menu-card-h
-                              .tag-a
-                                a(href='MaMo -articles/why-credit-card-companies-must-deploy-ai-for-fraud-prevention.html')
-                                  span FINTECH
-                              p.para
-                                a(href='MaMo -articles/why-credit-card-companies-must-deploy-ai-for-fraud-prevention.html')
-                                  | Why
-                                  | Credit Card Companies must Deploy AI Fraud
-                                  | Prevention?
-          .hide-desktop.show-mobile
-            .mobile-menu
-              nav#column_left
-                ul.nav-list
-                  li
-                    a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu1' aria-expanded='false') What we do&nbsp;
-                    ul#submenu1.nav-list.collapse(aria-expanded='false')
-                      li
-                        a(href='overview.html') Overview
-                      li
-                        a(data-bs-toggle='collapse' data-bs-target='#submenu2' aria-expanded='false') Capabilities&nbsp;
-                        ul#submenu2.nav-list.collapse(aria-expanded='false')
-                          li
-                            a(href='services/ai-ml.html')
-                              | Artificial Intelligence and
-                              | Machine Learning
-                          li
-                            a(href='services/global-capability-center.html')
-                              | Global
-                              | Capability Center
-                          li
-                            a(href='services/digital-transformation.html')
-                              | Digital
-                              | Transformation
-                          li
-                            a(href='services/cybersecurity.html') Cybersecurity
-                          li
-                            a(href='services/MaMo -design-studio.html')
-                              | MaMo  Design
-                              | Studio
-                      li
-                        a(data-bs-toggle='collapse' data-bs-target='#submenu3' aria-expanded='false') Industries&nbsp;
-                        ul#submenu3.nav-list.collapse(aria-expanded='false')
-                          li
-                            a(href='industries/banking-fintech.html')
-                              | Banking and
-                              | Fintech
-                          li
-                            a(href='industries/insurance-insurtech.html')
-                              | Insurance and
-                              | InsurTech
-                          li
-                            a(href='industries/emerging-tech-startups.html')
-                              | Emerging Tech
-                              | Startups
-                      li
-                        a(data-bs-toggle='collapse' data-bs-target='#submenu4' aria-expanded='false') Products&nbsp;
-                        ul#submenu4.nav-list.collapse(aria-expanded='false')
-                          li
-                            a(href='https://iotsense.io/' target='_blank') IoTSense
-                          li
-                            a(href='https://predictsense.io/' target='_blank') PredictSense
-                  //
-                    <li><a class="accordion-heading" data-bs-toggle="collapse"
-                    data-bs-target="#submenu21" aria-expanded="false">Who we are </a>
-                    <ul class="nav-list collapse" id="submenu21" aria-expanded="false">
-                    <li><a href="about-us">About Us</a></li>
-                    <li><a href="careers-life-at-MaMo.html ">Life at MaMo </a></li>
-                    <li><a href="careers-life-at-MaMo.html #contact-form-sect"
-                    target="_blank">Careers</a></li>
-                    <li><a href="corporate-social-responsibility.html">Corporate Social
-                    Responsibility</a></li>
-                    <li><a href="contact">Contact Us</a></li>
-                    </ul>
-                    </li>
-                  li
-                    a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu31' aria-expanded='false') Blog&nbsp;
-                    ul#submenu31.nav-list.collapse(aria-expanded='false')
-                      li
-                        a(href='latest-news-and-events.html') Newsroom and Events
-                      li
-                        a(href='MaMo -articles.html') Articles and Blog Report
-                      li
-                        a(href='case-studies.html') Case Studies
-      // Start Responsive Sidebar Menu Area
-      #sidebarOffcanvas.sidebar-menu-area.offcanvas.offcanvas-end(tabindex='-1')
-        .offcanvas-header
-          a(href='index.html')
-            img(src='images/logo2.svg' alt='logo')
-          button.close-btn(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
-            i.ri-close-line
-        .offcanvas-body
-          #sidebarAccordion.accordion
-            .accordion-item
-              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#collapseOne' aria-expanded='false' aria-controls='collapseOne')
-                | Home
-              #collapseOne.accordion-collapse.collapse(data-bs-parent='#sidebarAccordion')
-                .accordion-body
-                  #sidebarAccordion1.accordion
-                    .accordion-item
-                      a.accordion-link(href='index.html')
-                        | HR Staffing Home
-                    .accordion-item
-                      a.accordion-link(href='index-2.html')
-                        | HR Recruiting Home
-                    .accordion-item
-                      a.accordion-link(href='index-3.html')
-                        | HR Consulting Home
-                    .accordion-item
-                      a.accordion-link(href='index-4.html')
-                        | HR Outsourcing Home
-            .accordion-item
-              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#collapseTwo' aria-expanded='false' aria-controls='collapseTwo')
-                | Pages
-              #collapseTwo.accordion-collapse.collapse(data-bs-parent='#sidebarAccordion')
-                .accordion-body
-                  #sidebarAccordion2.accordion
-                    .accordion-item
-                      a.accordion-link(href='about-us')
-                        | About Us
-                    .accordion-item
-                      a.accordion-link(href='pricing-plan.html')
-                        | Pricing Plan
-                    .accordion-item
-                      a.accordion-link(href='team.html')
-                        | Team
-                    .accordion-item
-                      a.accordion-link(href='team-details.html')
-                        | Team Details
-                    .accordion-item
-                      a.accordion-link(href='for-employers.html')
-                        | For Employers
-                    .accordion-item
-                      a.accordion-link(href='for-candidates.html')
-                        | For Candidates
-                    .accordion-item
-                      a.accordion-link(href='faq.html')
-                        | FAQ
-                    .accordion-item
-                      a.accordion-link(href='testimonials.html')
-                        | Testimonials
-                    .accordion-item
-                      a.accordion-link(href='book-an-appointment.html')
-                        | Book An Appointment
-                    .accordion-item
-                      a.accordion-link(href='careers.html')
-                        | Careers
-                    .accordion-item
-                      a.accordion-link(href='career-details.html')
-                        | Career Details
-                    .accordion-item
-                      a.accordion-link(href='login.html')
-                        | Login
-                    .accordion-item
-                      a.accordion-link(href='register.html')
-                        | Register
-                    .accordion-item
-                      a.accordion-link(href='privacy-policy.html')
-                        | Privacy Policy
-                    .accordion-item
-                      a.accordion-link(href='terms-of-service.html')
-                        | Terms Of Service
-                    .accordion-item
-                      a.accordion-link(href='not-found.html')
-                        | 404 Error Page
-            .accordion-item
-              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#collapseThree' aria-expanded='false' aria-controls='collapseThree')
-                | Services
-              #collapseThree.accordion-collapse.collapse(data-bs-parent='#sidebarAccordion')
-                .accordion-body
-                  #sidebarAccordion3.accordion
-                    .accordion-item
-                      a.accordion-link(href='services-1.html')
-                        | Services Style 01
-                    .accordion-item
-                      a.accordion-link(href='services-2.html')
-                        | Services Style 02
-                    .accordion-item
-                      a.accordion-link(href='services-3.html')
-                        | Services Style 03
-                    .accordion-item
-                      a.accordion-link(href='services-4.html')
-                        | Services Style 04
-                    .accordion-item
-                      a.accordion-link(href='service-details.html')
-                        | Service Details
-            .accordion-item
-              button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#collapseFour' aria-expanded='false' aria-controls='collapseFour')
-                | Case Studies
-              #collapseFour.accordion-collapse.collapse(data-bs-parent='#sidebarAccordion')
-                .accordion-body
-                  #sidebarAccordion4.accordion
-                    .accordion-item
-                      a.accordion-link(href='case-studies.html')
-                        | Case Studies
-                    .accordion-item
-                      a.accordion-link(href='case-study-details.html')
-                        | Case Study Details
-            .accordion-item
-              button.accordion-button.collapsed.active(type='button' data-bs-toggle='collapse' data-bs-target='#collapseFive' aria-expanded='false' aria-controls='collapseFive')
-                | Blog
-              #collapseFive.accordion-collapse.collapse.show(data-bs-parent='#sidebarAccordion')
-                .accordion-body
-                  #sidebarAccordion5.accordion
-                    .accordion-item
-                      a.accordion-link(href='blog')
-                        | Blog
-                    .accordion-item
-                      a.accordion-link(href='blogstandard.html')
-                        | Blog Standard
-                    .accordion-item
-                      a.accordion-link.active(href='blogdetails.html')
-                        | Blog Details
-            .accordion-item
-              a.accordion-button.without-icon(href='contact-us.html')
-                | Contact Us
-          .others-option
-            .option-item
-              .info
-                span Call Us Now
-                a(href='tel:552588494') +55 258 8494
-            .option-item
-              form.search-form
-                input.form-control(type='text' placeholder='Search')
-                button(type='submit')
-                  i.ri-search-line
-            .option-item
-              a.default-btn(href='book-an-appointment.html') Hire Talent
-      // End Responsive Sidebar Menu Area
-      // Start Search Popup
-      .search-popup
-        .search-popup-overlay.search-toggler
-        .search-popup-content
-          form.search-popup-form
-            input.form-control(type='text' placeholder='Search here')
-            button(type='submit')
-              i.ri-search-line
-      // End Search Popup
-      // Start Page Banner Area
-      .page-banner-area
-        .container-fluid
-          .row.justify-content-center.align-items-center.g-4(data-cues='slideInUp' data-duration='1000')
-            .col-xl-8.col-md-12
-              .page-banner-content
-                .content.section-title-animation.animation-style1
-                  h2.title-animation Blog Details
-                  ul.list
-                    li
-                      a(href='index.html') Home
-                    li Blog Details
-                .image
-                  img(src='images/page-banner20.jpg' alt='image')
-            .col-xl-4.col-md-12
-              .page-banner-right-content
-                .wrap-image
-                  img(src='images/favicon.ico' alt='image')
-                .wrap-content
-                  p
-                    | Stay updated with the latest insights from MaMo TechnoLabs. Our blog covers software development, digital trends, and practical tips to help businesses grow with technology.
-                  ul.list
-                    li
-                      span Follow Us:
-                    li
-                      a(href='https://www.facebook.com/p/MaMo-TechnoLabs-LLP-61551035098279/' target='_blank')
-                        // <i class="ri-facebook-fill"></i>
-                        i.fa-brands.fa-facebook
-                    li
-                      a.instagram(href='https://www.instagram.com/MaMoTechnoLabs?igsh=MTlweHh5dTRuOGZnMA==' target='_blank')
-                        i.fa-brands.fa-instagram
-                    li
-                      a(href='https://www.linkedin.com/company/MaMoTechnoLabs/posts/?feedView=all' target='_blank')
-                        // <i class="ri-linkedin-fill"></i>
-                        i.fa-brands.fa-linkedin
-      // End Page Banner Area
-      // Start Blog Details Area
-      .blog-details-area.ptb-120
-        .container
-          .row.justify-content-center.g-4(data-cues='slideInUp' data-duration='1000')
-            .col-lg-8.col-md-12
-              .blog-details-desc
-                .top
-                  h2 How Custom Software Development Helps Growing Businesses Scale Faster
-                  ul.info-list
-                    li
-                      // <i class="ri-user-line"></i>
-                      i.fa-solid.fa-building
-                      span
-                        | By - 
-                        a(href='blog') MaMo
-                    li
-                      // <i class="ri-calendar-line"></i>
-                      i.fa-regular.fa-calendar-days
-                      span Dec 10, 2025
-                    li
-                      i.fa-solid.fa-clock
-                      span 8 Min Read
-                .desc-image
-                  img(src='images/blog22.png' alt='image')
-                h3 How Custom Software Development Helps Growing Businesses Scale Faster
-                p
-                  | Excitement fills the air when a company expands  yet chaos isn&rsquo;t far behind. When customer numbers climb, old methods tend to drag, even if they ran smoothly before. What shifts things? Tailored software steps in right there. As work piles up and information spreads, one-size-fits-all tools fall short. Here&rsquo;s where
-                  b 
-                  a(href='custom-app') Custom Software Development 
-                  |changes the game something 
-                  b <b>MaMo TechnoLabs</b> 
-                  | helps deliver through advanced business software solutions
-                  |  for modern teams.
-                p
-                  b Custom Software Development 
-                  | fits your company because it grows with your needs, not the other way around. At MaMo TechnoLabs, systems are designed as 
-                  b scalable software to
-                  |  support expansion without friction. This post shows real ways tailored systems help 
-                  b software for growing businesses
-                  |  move quicker, work smoother, and face less resistance. How things get done shapes the tech never forced into rigid boxes. Expect clearer processes, fewer roadblocks, and an edge when it matters. The design follows your path, your targets, your pace, nothing added, nothing missed.
-                h3 Growing Businesses Face Challenges With Ready-Made Software
-                p
-                  | Starting out, many companies pick pre-built solutions fast to launch and easier on the budget. As things expand, though, those perks start showing cracks.
-                p Common issues include:
-                ul.list
-                  li
-                    // <i class="ri-check-line"></i>
-                    i.fa-solid.fa-caret-right
-                    span Limited customization
-                  li
-                    // <i class="ri-check-line"></i>
-                    i.fa-solid.fa-caret-right
-                    span Poor integration between tools
-                  li
-                    // <i class="ri-check-line"></i>
-                    i.fa-solid.fa-caret-right
-                    span Unused features that add complexity
-                  li
-                    // <i class="ri-check-line"></i>
-                    i.fa-solid.fa-caret-right
-                    span Performance issues as usage grows
-                br
-                p
-                  | For software for growing businesses, these limitations slow teams down and complicate daily operations. This is where smarter
-                  b  business software solutions
-                  |  such as those built through 
-                  b Custom Software Development
-                  |  at
-                  b MaMo TechnoLabs,
-                  |   become essential.
-                h3 Custom Software Development Explained
-                p
-                  | Built from scratch, tailored programs fit exactly what your team does every day. Unlike ready-made tools, these systems grow around real workflows. At 
-                  b MaMo TechnoLabs, 
-                  a(href="custom-app") Custom Software Development
-                  |   is focused on building precise 
-                  b business software solutions
-                  |  no extra parts, no forced changes.
-                br
-                p
-                  | When standard apps miss key steps, custom ones fill each gap quietly. Designed to adapt, they evolve as tasks change without disrupting habits. Each feature exists because a task demands it nothing more. This makes 
-                  b Custom Software Development
-                  |  ideal for 
-                  b software for growing businesses
-                  |  that need flexibility.
-                h3 Custom Software Development allows you to:
-                br
-                ul.list
-                  li
-                    // <i class="ri-check-line"></i>
-                    i.fa-solid.fa-caret-right
-                    span
-                      | Start small and scale gradually with 
-                      b  scalable software
-                  li
-                    // <i class="ri-check-line"></i>
-                    i.fa-solid.fa-caret-right
-                    span Adapt software as your business evolves
-                  li
-                    // <i class="ri-check-line"></i>
-                    i.fa-solid.fa-caret-right
-                    span Integrate smoothly with existing systems
-                  li
-                    // <i class="ri-check-line"></i>
-                    i.fa-solid.fa-caret-right
-                    span Maintain full control over performance and security
-                h3 Custom Software Development Helps Businesses Grow Faster
-                br
-                h5 Scalable Software That Grows With Your Needs
-                p
-                  | A single tool, built to stretch alongside your company. As teams grow, locations expand, or functions multiply, 
-                  b scalable software developed 
-                  | by 
-                  b MaMo TechnoLabs
-                  |  supports 
-                  b software for growing businesses
-                  |  without crashes or lag.
-                h5 Automation Makes Work Faster
-                p
-                  | Through 
-                  b custom 
-                  a(href="software-development") Software Development,
-                  |  routine tasks like reports, order handling, and data organization are automated. Manual work drops. Errors reduce. Teams redirect energy toward growth instead of repetition. This approach defines how 
-                  b MaMo TechnoLabs
-                  |  builds high-impact 
-                  b business software solutions.
-                h5 Simple Business Software Solutions for Running Your Business
-                p
-                  | One system connects everything CRM, finance, inventory, and operations. These integrated 
-                  b business software solutions
-                  |  improve visibility and decision-making. 
-                  b MaMo TechnoLabs
-                  |  designs such systems using 
-                  b Custom Software Development
-                  |  to reduce inefficiency and tool overload.
-                h5 Custom Web Applications Built for Today&rsquo;s Teams
-                p
-                  | With 
-                  b custom web applications,
-                  |  teams can work from anywhere using real-time data.
-                  b MaMo TechnoLabs
-                  |   develops secure, flexible 
-                  b custom web applications
-                  |  that support remote work, collaboration, and seamless customer interaction essential for software for
-                  b growing businesses.
-                h5 Better Security and Control
-                p
-                  | As companies expand, off-the-shelf tools often fall short. 
-                  b Custom Software Development
-                  |  at MaMo TechnoLabs enables 
-                  a(href="web-portal") role-based access, scalable security 
-                  b , and performance control key elements of long-term scalable software.
-                h5 Long-Term Value of Custom Software Development
-                p
-                  | While building software from scratch may cost more upfront, 
-                  b Custom Software Development
-                  |  reduces long-term expenses by removing license fees, tool overlap, and inefficiencies. For 
-                  b software for growing businesses,
-                  |  tailored 
-                  b business software solutions
-                  |  deliver stability today and adaptability tomorrow.
-                h5 Final Thoughts &ndash; Scale Smarter Using Custom Software Development
-                p
-                  | Growth becomes smoother when technology stops holding you back. 
-                  b With Custom Software Development, 
-                  | companies gain flexibility, efficiency, and control that off-the-shelf tools rarely provide.
-                p
-                  | When paired with 
-                  b scalable software
-                  |  and purpose-built 
-                  b custom web applications
-                  | , solutions developed by 
-                  a(href="/") MaMo TechnoLabs 
-                  | don&rsquo;t just support growth they actively drive it.
-                .article-footer
-                  .row.justify-content-center.align-items-center.g-4
-                    .col-lg-7.col-md-7
-                      ul.tags
-                        li
-                          span Tags:
-                        li
-                          a(href='blog') MaMo TechnoLabs
-                    .col-lg-5.col-md-5
-                      ul.social
-                        li
-                          span Share:
-                        li
-                          a(href='https://www.facebook.com/p/MaMo-Technolabs-LLP-61551035098279/' target='_blank')
-                            // <i class="ri-facebook-fill"></i>
-                            i.fa-brands.fa-facebook
-                        li
-                          a(href='https://www.linkedin.com/company/3544671/admin/dashboard/' target='_blank')
-                            // <i class="ri-twitter-x-line"></i>
-                            i.fa-brands.fa-linkedin
-                        li
-                          a(href='https://www.instagram.com/mamotechnolabs?igsh=MTlweHh5dTRuOGZnMA%3D%3D' target='_blank')
-                            // <i class="ri-instagram-fill"></i>
-                            i.fa-brands.fa-github
-              footer
-  .common-footer-wrapper-outer
-    .common-footer-wrapper
+      .banner-content
+        h1.blog-title= blog.title
+        .breadcrumb-nav
+          a(href='/') Home
+          span.separator /
+          a(href='/blog') Blog
+          span.separator /
+          span.current Article
 
-      // ===== TOP CTA FOOTER =====
-      footer.common-footer1
-        .container
-          .row
-            .col-sm-12
-              .common-sect-para
-                h3(data-aos='fade-up' data-aos-delay='300' data-aos-anchor='.common-footer-wrapper-outer')
-                  | Believe in possibilities and navigate
-                  br
-                  | beyond the expected with us !
-                .btn-row(data-aos='fade-up' data-aos-delay='600' data-aos-anchor='.common-footer-wrapper-outer')
+  // Blog Content Section
+  .blog-content-section
+    .container
+      .blog-wrapper
+        
+        if blog.bannerImage
+          .blog-featured-image
+            img(src=blog.bannerImage alt=blog.title)
 
-        .hero-circle-wrap
-          img.hero-circle.hero-circle5(src='images/foot-circle5.svg' alt='hero-circle5' loading='lazy')
-          img.hero-circle.hero-circle4(src='images/foot-circle4.svg' alt='hero-circle4' loading='lazy')
-          img.hero-circle.hero-circle3(src='images/foot-circle3.svg' alt='hero-circle3' loading='lazy')
-          img.hero-circle.hero-circle2(src='images/foot-circle2.svg' alt='hero-circle2' loading='lazy')
-          img.hero-circle.hero-circle1(src='images/foot-circle1.svg' alt='hero-circle1' loading='lazy')
+        .blog-meta
+          span.blog-date
+            i.fa-regular.fa-calendar-days
+            = ' ' + new Date(blog.createdAt).toDateString()
 
-      // ===== MAIN FOOTER =====
-      footer.common-footer2
-        .container
+        if blog.metaDescription
+          .blog-excerpt= blog.metaDescription
 
-          // MAIN ROW
-          .row
+        .blog-body
+          != blog.content
 
-            // LEFT SECTION
-            .col-lg-8.col-md-7
-              .footer-left
-                .logo-wrap
-                  img(src='images/favicon.ico' alt='Mamo log' width='69' height='69' loading='lazy')
 
-                p.para
-                  | MaMo TechnoLabs LLP Provide best web development solution & Customized Strategies To Our Clients Based On Their Business Goals and Objectives.
 
-                ul.social-ul.mt-3
-                  li
-                    a(href='https://www.facebook.com/p/MaMo-Technolabs-LLP-61551035098279/' target='_blank')
-                      img(src='images/facebook-logo.svg' alt='facebook' loading='lazy')
-                  li
-                    a(href='https://www.linkedin.com/company/mamotechnolabs/posts/?feedView=all' target='_blank')
-                      img(src='images/linkedIn-logo.svg' alt='linkedin' loading='lazy')
-                  li
-                    a(href='https://www.instagram.com/mamotechnolabs' target='_blank')
-                      img(src='images/instagram-icon-logo.svg' alt='instagram' loading='lazy')
+        // Follow Us Section
+        .blog-follow
+          h4 Follow MaMo Technolabs
+          .follow-buttons
+            a.follow-btn.facebook(href="https://www.facebook.com/p/MaMo-Technolabs-LLP-61551035098279/" target="_blank" rel="noopener nofollow")
+              | Facebook
+            a.follow-btn.linkedin(href="https://www.linkedin.com/company/mamotechnolabs/posts/?feedView=all" target="_blank" rel="noopener nofollow")
+              | LinkedIn
+            a.follow-btn.instagram(href="https://www.instagram.com/mamotechnolabs" target="_blank" rel="noopener nofollow")
+              | Instagram
 
-                ul.iso-ul.mt-3
-                  li
-                    img(src='images/77942-I%2526M%20BU%20-%20CMMI%20Development%20-%20Maturity%20Level%20-%203.png' alt='CMMI' loading='lazy')
-                  li
-                    img(src='images/iso1.png' alt='iso1' loading='lazy')
-                  li
-                    img(src='images/iso2.png' alt='iso2' loading='lazy')
-
-            // RIGHT SECTION
-            .col-lg-4.col-md-5
-              .row
-
-                // Quick Links
-                .col-6
-                  h4.footer-title.text-white Quick Links
-                  ul.footer-links
-                    li
-                      a(href='/') Home
-                    li
-                      a(href='/about-us') About Us
-                    li
-                      a(href='/contact') Contact
-
-                // Contact Info
-                .col-6
-                  h4.footer-title.text-white Contact Us
-                  ul.footer-contact.text-white
-                    li +91 9325910095
-                    li info@mamotechnolabs.com
-                    li Dubai
-                    li Vadodara, Gujarat
-                    li Bogota, Colombia
-                    li Lima, Peru
-                    li Panama
-
-          // ===== COPYRIGHT ROW (FIXED POSITION) =====
-          .row.common-footer3-row.align-items-center.mt-4.pt-3(style='border-top:1px solid rgba(255,255,255,0.15);')
-
-            .col-lg-8.col-md-7.col-12
-              p.sm-para.mb-0
-                | © 2026 Mamo Technologies | All rights reserved
-
-            .col-lg-4.col-md-5.col-12.text-lg-end.text-start.mt-2.mt-lg-0
-              ul.tc-link.mb-0
-                li
-                  a(href='/term-conditions') Terms and Conditions
-                li.mx-2 |
-                li
-                  a(href='/privacy-policy') Privacy Policy
-      .cookie-card.d-none
-        .cookie-card-head
-          img(src='images/cookie.svg' alt='cookie' width='48' height='48' loading='lazy')
-          a.hide-cookie-card-btn(href='#')
-            img(src='images/Close_MD.svg' alt='Close_MD' width='24' height='24' loading='lazy')
-        .cookie-card-body
-          p.para
-            | Our website uses cookies to enhance your browsing experience, personalize content, and analyze our traffic. By clicking &quot;Accept All&quot;, you agree to the storing of cookies on your device to improve site navigation, analyze site usage, and assist in our marketing efforts. For more detailed information, please visit our 
-            br
-            a(href='/privacy-policy' target='_blank' rel='noopener noreferrer') Privacy Policy
-            | .
-          .btn-row
-            .btn.btn-normal
-              .btn-fill.btn-original-fill  
-              .btn-text.btn-original-text
-                a.btn-click.hide-cookie-card-btn(href='#')
-                  span Accept All
-              .btn-text.btn-duplicate-text
-                a.btn-click.hide-cookie-card-btn(href='#')
-                  span Accept All
-    #loader-modal.modal.fade.loader-modal(data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='loader-modalLabel' aria-hidden='true')
-      .modal-dialog.modal-dialog-centered
-        .modal-content
-          .loader-card
-            p
-              a.btn-close-a(href='#' data-bs-dismiss='modal' aria-label='Close') X
-            .loader-card-loader
-              .page-details-loader &nbsp;
-  // End Footer Area
-  script(type='application/json' data-drupal-selector='drupal-settings-json').
-    {"path":{"baseUrl":"\\/","pathPrefix":"","currentPath":"contact","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"","suppressDeprecationErrors":true,"clientside_validation_jquery":{"validate_all_ajax_forms":2,"force_validate_on_blur":false,"force_html5_validation":false,"messages":{"required":"This field is required.","remote":"Please fix this field.","email":"Please enter a valid email address.","url":"Please enter a valid URL.","date":"Please enter a valid date.","dateISO":"Please enter a valid date (ISO).","number":"Please enter a valid number.","digits":"Please enter only digits.","equalTo":"Please enter the same value again.","maxlength":"Please enter no more than {0} characters.","minlength":"Please enter at least {0} characters.","rangelength":"Please enter a value between {0} and {1} characters long.","range":"Please enter a value between {0} and {1}.","max":"Please enter a value less than or equal to {0}.","min":"Please enter a value greater than or equal to {0}.","step":"Please enter a multiple of {0}."},"user":{"uid":0,"permissionsHash":"9582417dfe80a723cf846f43ffbed3652f88ffa08ae3527b795beeabfddfb78f"}
-  script(src='js/jquery.min_1.js')
-  script(src='js/once.min.js')
-  script(src='js/drupalSettingsLoader.js')
-  script(src='js/drupal.js')
-  script(src='js/drupal.init.js')
-  script(src='js/page.js' defer='')
-  script(src='js/addtoany.js')
-  script(src='js/jquery.min.js')
-  script(src='js/bootstrap.bundle.min.js')
-  script(src='js/popper.min.js')
-  script(src='js/slick.min.js')
-  script(src='js/gsap.min.js')
-  script(src='js/ScrollTrigger.min.js')
-  script(src='js/lottie-player.js')
-  script(src='js/aos.js')
-  script(src='js/jquery.floatit.js')
-  script(src='js/jquery.lazy.min.js')
-  script(src='js/global.js')
-  script(src='js/formValidations.js')
-  script(src='//unpkg.com/phosphor-icons')
-  script(src='js/form-submit.js')
-  script.
-    AOS.init({
-    duration: 1000,
-    easing: 'ease-in-out',
-    once: true
-    });
-  // Link of JS Files
-  script(data-cfasync='false' src='js/js/email-decode.min.js')
-  script(src='js/jquery.min.js')
-  script(src='js/js/bootstrap.bundle.min.js')
-  script(src='js/js/swiper-bundle.min.js')
-  script(src='js/js/scrollCue.min.js')
-  script(src='js/js/simpleParallax.min.js')
-  script(src='js/js/fslightbox.min.js')
-  script(src='js/js/gsap.min.js')
-  script(src='js/js/ScrollTrigger.min.js')
-  script(src='js/js/SplitText.min.js')
-  script(src='js/js/main.js')
-  script.
-    (function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c589b07be9ad592',t:'MTc2OTY4ODQwOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
-  iframe(height='1' width='1' style='position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;')
+  style.
+    .blog-banner-section {
+      background: linear-gradient(90deg, hsla(178, 100%, 79%, 0.5) 0%, hsla(122, 100%, 88%, 0.5) 100%);
+      padding: 60px 0;
+      //- margin-top: 60px;
+      width: 100%;
+    }
+    .blog-banner-section .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .banner-content {
+      text-align: center;
+    }
+    .blog-title {
+      font-size: 2.5rem;
+      line-height: 1.3;
+      margin: 0 0 20px 0;
+      color: #333;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    .breadcrumb-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+    .breadcrumb-nav a {
+      color: #666;
+      text-decoration: none;
+    }
+    .breadcrumb-nav a:hover {
+      color: #4CAF50;
+    }
+    .breadcrumb-nav .separator {
+      color: #999;
+    }
+    .breadcrumb-nav .current {
+      color: #333;
+      font-weight: 600;
+    }
+    .blog-content-section {
+      padding: 60px 0;
+      width: 100%;
+    }
+    .blog-content-section .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .blog-wrapper {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+    .blog-featured-image {
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .blog-featured-image img {
+      width: 100%;
+      height: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      display: block;
+    }
+    .blog-meta {
+      padding: 30px 40px 0;
+      color: #999;
+      font-size: 0.95rem;
+    }
+    .blog-date i {
+      margin-right: 5px;
+    }
+    .blog-excerpt {
+      padding: 20px 40px;
+      background: #f8f9fa;
+      border-left: 4px solid #4CAF50;
+      margin: 20px 40px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+      font-weight: 500;
+    }
+    .blog-body {
+      padding: 30px 40px;
+      line-height: 1.8;
+      color: #444;
+      font-size: 1.05rem;
+    }
+    .blog-body h1 {
+      font-size: 2rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #333;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .blog-body h2 {
+      font-size: 1.75rem;
+      margin-top: 35px;
+      margin-bottom: 18px;
+      color: #333;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .blog-body h3 {
+      font-size: 1.5rem;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #333;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .blog-body h4 {
+      font-size: 1.25rem;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      color: #444;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .blog-body h5 {
+      font-size: 1.1rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #444;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .blog-body h6 {
+      font-size: 1rem;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #555;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .blog-body p {
+      margin-bottom: 20px;
+    }
+    .blog-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .blog-body ul, .blog-body ol {
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+    .blog-body li {
+      margin-bottom: 10px;
+    }
+    .blog-body a {
+      color: #4CAF50;
+      text-decoration: underline;
+    }
+    .blog-body blockquote {
+      border-left: 4px solid #4CAF50;
+      padding-left: 20px;
+      margin: 20px 0;
+      font-style: italic;
+      color: #666;
+    }
+    .blog-body code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .blog-body pre {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .blog-share {
+      padding: 30px 40px 20px;
+      border-top: 2px solid #f0f0f0;
+    }
+    .blog-share h4 {
+      margin: 0 0 15px 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+    .share-btn:hover {
+      opacity: 0.9;
+    }
+    .share-btn.twitter {
+      background: #1DA1F2;
+    }
+    .share-btn.facebook {
+      background: #4267B2;
+    }
+    .share-btn.linkedin {
+      background: #0077B5;
+    }
+    .blog-follow {
+      padding: 20px 40px 40px;
+    }
+    .blog-follow h4 {
+      margin: 0 0 15px 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .follow-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .follow-btn {
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .follow-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .follow-btn.facebook {
+      background: #4267B2;
+    }
+    .follow-btn.linkedin {
+      background: #0077B5;
+    }
+    .follow-btn.instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+    
+    @media (max-width: 768px) {
+      .blog-title {
+        font-size: 1.8rem;
+      }
+      .blog-meta,
+      .blog-excerpt,
+      .blog-body,
+      .blog-share,
+      .blog-follow {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+      .blog-excerpt {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+      .blog-body {
+        font-size: 1rem;
+      }
+      .blog-body h1 {
+        font-size: 1.6rem;
+      }
+      .blog-body h2 {
+        font-size: 1.4rem;
+      }
+      .blog-body h3 {
+        font-size: 1.25rem;
+      }
+      .blog-body h4 {
+        font-size: 1.1rem;
+      }
+      .blog-body h5, .blog-body h6 {
+        font-size: 1rem;
+      }
+      .share-buttons,
+      .follow-buttons {
+        flex-direction: column;
+      }
+      .share-btn,
+      .follow-btn {
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .blog-banner-section {
+        padding: 40px 0;
+      }
+      .blog-title {
+        font-size: 1.5rem;
+      }
+      .blog-meta,
+      .blog-excerpt,
+      .blog-body,
+      .blog-share,
+      .blog-follow {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .blog-excerpt {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .blog-body h1 {
+        font-size: 1.4rem;
+      }
+      .blog-body h2 {
+        font-size: 1.25rem;
+      }
+      .blog-body h3 {
+        font-size: 1.15rem;
+      }
+      .blog-body h4, .blog-body h5, .blog-body h6 {
+        font-size: 1rem;
+      }
+    }

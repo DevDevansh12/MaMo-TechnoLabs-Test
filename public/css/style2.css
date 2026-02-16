@@ -32,20 +32,12 @@ a {
     background-color: transparent;
 }
 
-abbr[title] {
-    border-bottom: none;
-    text-decoration: underline;
-    text-decoration: underline dotted;
-}
-
 b,
 strong {
     font-weight: bolder;
 }
 
-code,
-kbd,
-samp {
+code {
     font-family: monospace, monospace;
     font-size: 1em;
 }
@@ -180,65 +172,14 @@ template {
 }
 
 /* @license GPL-2.0-or-later https://www.drupal.org/licensing/faq */
-.text-align-left {
-    text-align: left;
-}
-
-.text-align-right {
-    text-align: right;
-}
-
-.text-align-center {
-    text-align: center;
-}
-
-.text-align-justify {
-    text-align: justify;
-}
-
-.align-left {
-    float: left;
-}
-
-.align-right {
-    float: right;
-}
-
-.align-center {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.fieldgroup {
-    padding: 0;
-    border-width: 0;
-}
-
-.container-inline div,
-.container-inline label {
-    display: inline-block;
-}
 .container {
   max-width: 1140px;
-}
-
-.container-inline .details-wrapper {
-    display: block;
-}
-
-.container-inline .hidden {
-    display: none;
 }
 
 .clearfix::after {
     display: table;
     clear: both;
     content: "";
-}
-
-.js details:not([open]) .details-wrapper {
-    display: none;
 }
 
 .hidden {
@@ -263,237 +204,12 @@ template {
     height: auto;
 }
 
-.invisible {
-    visibility: hidden;
-}
-
-.item-list__comma-list,
-.item-list__comma-list li {
-    display: inline;
-}
-
-.item-list__comma-list {
-    margin: 0;
-    padding: 0;
-}
-
-.item-list__comma-list li::after {
-    content: ", ";
-}
-
-.item-list__comma-list li:last-child::after {
-    content: "";
-}
-
-.js .js-hide {
-    display: none;
-}
-
-.js-show {
-    display: none;
-}
-
-.js .js-show {
-    display: block;
-}
-
-@media (scripting:enabled) {
-    .js-hide.js-hide {
-        display: none;
-    }
-
-    .js-show {
-        display: block;
-    }
-}
-
 .nowrap {
     white-space: nowrap;
 }
 
-.position-container {
-    position: relative;
-}
-
-.reset-appearance {
-    margin: 0;
-    padding: 0;
-    border: 0 none;
-    background: transparent;
-    line-height: inherit;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-.resize-none {
-    resize: none;
-}
-
-.resize-vertical {
-    min-height: 2em;
-    resize: vertical;
-}
-
-.resize-horizontal {
-    max-width: 100%;
-    resize: horizontal;
-}
-
-.resize-both {
-    max-width: 100%;
-    min-height: 2em;
-    resize: both;
-}
-
-.system-status-counter__status-icon {
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
-}
-
-.system-status-counter__status-icon::before {
-    display: block;
-    width: 100%;
-    height: 100%;
-    content: "";
-    background-repeat: no-repeat;
-    background-position: center 2px;
-    background-size: 16px;
-}
-
-.system-status-counter__status-icon--error::before {
-    background-image: url(../images/error.svg);
-}
-
-.system-status-counter__status-icon--warning::before {
-    background-image: url(../images/warning.svg);
-}
-
-.system-status-counter__status-icon--checked::before {
-    background-image: url(../images/check.svg);
-}
-
-.system-status-report-counters__item {
-    width: 100%;
-    margin-bottom: 0.5em;
-    padding: 0.5em 0;
-    text-align: center;
-    white-space: nowrap;
-    background-color: rgba(0, 0, 0, 0.063);
-}
-
-@media screen and (min-width:60em) {
-    .system-status-report-counters {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .system-status-report-counters__item--half-width {
-        width: 49%;
-    }
-
-    .system-status-report-counters__item--third-width {
-        width: 33%;
-    }
-}
-
-.system-status-general-info__item {
-    margin-top: 1em;
-    padding: 0 1em 1em;
-    border: 1px solid #ccc;
-}
-
-.system-status-general-info__item-title {
-    border-bottom: 1px solid #ccc;
-}
-
-.tablesort {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background-size: 100%;
-}
-
-.tablesort--asc {
-    background-image: url(../images/twistie-down.svg);
-}
-
-.tablesort--desc {
-    background-image: url(../images/twistie-up.svg);
-}
-
 .addtoany {
     display: inline;
-}
-
-.addtoany_list {
-    display: inline;
-    line-height: 16px;
-}
-
-.addtoany_list>a,
-.addtoany_list a img,
-.addtoany_list a>span {
-    vertical-align: middle;
-}
-
-.addtoany_list>a {
-    border: 0;
-    display: inline-block;
-    font-size: 16px;
-    padding: 0 4px;
-}
-
-.addtoany_list.a2a_kit_size_32>a {
-    font-size: 32px;
-}
-
-.addtoany_list .a2a_counter img {
-    float: left;
-}
-
-.addtoany_list a span.a2a_img {
-    display: inline-block;
-    height: 16px;
-    opacity: 1;
-    overflow: hidden;
-    width: 16px;
-}
-
-.addtoany_list a span {
-    display: inline-block;
-    float: none;
-}
-
-.addtoany_list.a2a_kit_size_32 a>span {
-    border-radius: 4px;
-    height: 32px;
-    line-height: 32px;
-    opacity: 1;
-    width: 32px;
-}
-
-.addtoany_list a:hover:hover img,
-.addtoany_list a:hover span {
-    opacity: .7;
-}
-
-.addtoany_list a.addtoany_share_save img {
-    border: 0;
-    width: auto;
-    height: auto;
-}
-
-.addtoany_list a .a2a_count {
-    position: relative;
-}
-.container1 {
-  max-width: 1140px;
-}
-.fbs__net-navbar > .container1 {
-  position: relative;
 }
 
 .Tech-Stacks {
@@ -818,34 +534,9 @@ button:hover .circle .icon.arrow {
 button:hover .button-text {
  color: #fff;
 }
-.store-whatsapp {
-position: fixed; /* Keeps the button in a fixed position on the screen */
-z-index: 9998; /* Ensures the button is above other elements */
-right: 310px; /* Positions the button 20px from the right-hand side of the screen */
-bottom: 1px; /* Positions the button 10px from the bottom of the screen */
-display: flex; /* Uses Flexbox for the internal button layout */
-align-items: centre; /* Centres the content (icon) vertically */
-justify-content: center; /* Centers the content (icon) horizontally */
-padding: 24px; /* Internal spacing around the icon */
-border-radius: 50%; /* Makes the button circular */
-background:linear-gradient(90deg, #35F729, #78E588, #2CD73A, #03C0C7);/* Background colour of the button */
-box-shadow: 0 0 20px transparent; /* Soft shadow around the button */
-color:linear-gradient(90deg, #35F729, #78E588, #2CD73A, #03C0C7);/* Icon colour */
-font-size: 40px; /* Size of the icon inside the button */
-line-height: 47px; /* Line height for text/icon */
-text-align: center; /* Alignment of the text/icon */
-text-decoration: none; /* Removes any text decoration from the link */
-}
-
-.store-whatsapp:hover {
-background: #128C7E !important; /* Background color on mouseover */
-box-shadow: 0 0 20px rgb(75 57 75 / 50%); /* Shadow more prominent on mouseover */
-color: #128C7E !important; /* Mouse-over icon color */
-}
 /* From Uiverse.io by Gaurang7717 */ 
 /* Wrapper holding both buttons */
-.common-home-sect1,
-[data-aos-anchor=".common-home-sect1"] {
+.common-home-sect1 {
   display: flex;
   align-items: center;
   justify-content: center;   /* ✅ center horizontally */
@@ -873,30 +564,6 @@ color: #128C7E !important; /* Mouse-over icon color */
   border: 1px solid rgba(156, 156, 156, 0.466);
 }
 */
-.BG {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #00d757;
-  background: #00d757;
-  background: #00d757;
-  background: #00d757;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-  z-index: -1;
-  border-radius: 9px;
-  pointer-events: none;
-  transition: all 0.3s;
-}
-
-.Btn:hover .BG {
-  transform: rotate(35deg);
-  transform-origin: bottom;
-}
-
-.Btn:hover .svgContainer {
-  background-color: linear-gradient(90deg, #35F729, #78E588, #2CD73A, #03C0C7);
-}
 /*stats*/
 
 .commen-title-heading {
@@ -1857,14 +1524,6 @@ h2 {
   transform: translate3d(0, 0, 10px);
 }
 
-.mtp-unique-bottom .mtp-unique-view-more .mtp-unique-view-more-button {
-  background: none;
-  border: none;
-  color: #00c37b;
-  font-weight: bolder;
-  font-size: 12px;
-}
-
 .mtp-unique-bottom .mtp-unique-view-more .mtp-unique-svg {
   fill: none;
   stroke: #00c37b;
@@ -2445,69 +2104,11 @@ h2 {
   transform: translate(2px, 2px);
 }
 /* contact us */
-/* From Uiverse.io by xueyuantan */ 
-.btop {
-  width: 9em;
-  height: 3em;
-  border-radius: 30em;
-  font-size: 15px;
-  font-family: inherit;
-  cursor: pointer;
-
-  position: relative;
-  overflow: hidden;
-
-  /* DEFAULT border gradient */
-  background:
-    linear-gradient(transparent, transparent) padding-box,
-    linear-gradient(90deg, #72d391, #00c6ff) border-box;
-
-  border: 2px solid transparent;
-  color: #000;
-  z-index: 0;
-  transition: color 0.3s ease, background 0.3s ease;
-}
+/* From Uiverse.io by xueyuantan */
 
 /* Hover fill */
-.btop::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 30em;
-
-  /* HOVER gradient */
-  background-image: linear-gradient(
-    90deg,
-    #35F729,
-    #78E588,
-    #2CD73A,
-    #03C0C7
-  );
-
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease;
-  z-index: -1;
-}
 
 /* 🔥 MATCH BORDER TO HOVER GRADIENT */
-.btop:hover {
-  color: #fff;
-
-  background:
-    linear-gradient(transparent, transparent) padding-box,
-    linear-gradient(
-      90deg,
-      #35F729,
-      #78E588,
-      #2CD73A,
-      #03C0C7
-    ) border-box;
-}
-
-.btop:hover::before {
-  transform: scaleX(1);
-}
 /* contact us upper */
 
 .btoptop {
@@ -2564,10 +2165,6 @@ h2 {
 /* Hover state */
 .btoptop:hover {
   color: #fff;
-}
-
-.btop:hover::before {
-  transform: scaleX(1);
 }
 
 
@@ -2647,38 +2244,6 @@ h2 {
 }
 
 /*links*/
-.custom-dropdown {
-  position: relative;
-}
-
-.custom-dropdown-menu {
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-  transition: all 0.3s ease;
-}
-
-.custom-dropdown.open .custom-dropdown-menu {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.custom-dropdown-toggle {
-  cursor: pointer;
-  user-select: none;
-}
-
-.custom-dropdown-toggle i {
-  margin-left: 6px;
-  transition: transform 0.3s ease;
-}
-
-.custom-dropdown.open .custom-dropdown-toggle i {
-  transform: rotate(180deg);
-}
 
 
 .mega-dropdown-menu {
@@ -2710,74 +2275,6 @@ h2 {
 }
 .nav-list.collapse.show {
   display: block;
-}
-
-
-
-
-
-/* =========================
-   FLOATING CHAT BUTTON
-========================= */
-.chat-fab{
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  background: linear-gradient(90deg, #35F729, #78E588, #2CD73A, #03C0C7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  z-index:9999;
-  animation: pulse 2.2s infinite;
-  box-shadow: 0 0 0 rgba(3,192,199,0.6);
-}
-
-.chat-fab img{
-  width:30px;
-  height:30px;
-}
-
-.chat-fab:hover{
-  transform: scale(1.1);
-  animation-play-state: paused;
-}
-
-/* Pulse animation */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(3,192,199,0.6);
-    transform: scale(1);
-  }
-  70% {
-    box-shadow: 0 0 0 16px rgba(3,192,199,0);
-    transform: scale(1.05);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(3,192,199,0);
-    transform: scale(1);
-  }
-}
-
-/* =========================
-   CHAT BOX
-========================= */
-.chatbox{
-  position:fixed;
-  bottom:110px;
-  right:30px;
-  width:350px;
-  height:520px;
-  background:#fff;
-  border-radius:20px;
-  box-shadow:0 25px 50px rgba(0,0,0,.25);
-  display:none;
-  flex-direction:column;
-  overflow:hidden;
-  z-index:9999;
 }
 
 /* HEADER */
@@ -2869,25 +2366,6 @@ h2 {
 }
 /*close*/
 /* why mamo section */
-.why-choose-section {
-  margin-top: -20px;
-  padding: 70px 20px;
-  background: #fff;
-}
-
-.why-container {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-.why-title {
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 41px;
-  margin-bottom: 20px;
-  color: #111;
-}
 
 .why-desc {
   font-family: sans-serif;
@@ -2897,109 +2375,23 @@ h2 {
   margin-bottom: 35px;
 }
 
-.why-subtitle {
-  font-family: sans-serif;
-  text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: #111;
-}
-
 /* Grid Layout for first 3 cards */
-.why-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 25px;
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  justify-content: center; /* centers last row automatically */
-}
 
 /* Card Style */
-.why-list li {
-  background: #ffffff;
-  padding: 22px 20px;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  min-height: 140px; /* ensures all cards have same height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 
 /* Hover Effect */
-.why-list li:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-}
 
 /* Center last two cards */
-.why-list-center {
-  display: flex;
-  justify-content: center; /* center horizontally */
-  gap: 18px; /* space between the two cards */
-  grid-column: 1 / -1; /* span entire grid width */
-}
 
 /* Last two cards specific size */
-.why-list-center li {
-  min-width: 260px;   /* narrower than first three cards */
-  max-width: 300px;   /* optional */
-  height: 100px;      /* taller than first three cards */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 
 /* Bottom Text */
-.why-note {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 25px;
-  color: #111;
-}
-
-.why-footer {
-  font-size: 16px;
-  font-weight: 600;
-  color: #111;
-}
 
 
 /* Responsive */
 @media (max-width: 768px) {
-  .why-title {
-    font-size: 30px;
-  }
-
-  .why-subtitle {
-    font-size: 22px;
-  }
 
   /* Stack last two cards vertically on small screens */
-  .why-list-center {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .why-list-center li {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    min-height: auto;
-  }
 }
 /* end  why mamo*/
 
@@ -3526,7 +2918,6 @@ ul {
 /* Slightly relax max-widths on medium screens */
 @media (max-width: 1200px) {
   .container,
-  .container1,
   .container2 {
     max-width: 100%;
     padding-left: 24px;
@@ -3538,7 +2929,6 @@ ul {
 @media (max-width: 992px) {
   /* Generic containers */
   .container,
-  .container1,
   .container2 {
     padding-left: 20px;
     padding-right: 20px;
@@ -3549,7 +2939,6 @@ ul {
   .commen-title-heading h2,
   .testimonials-title,
   .industry-title,
-  .why-title,
   .flowx-title {
     font-size: 30px;
   }
@@ -3565,9 +2954,6 @@ ul {
   }
 
   /* Why choose layout padding */
-  .why-choose-section {
-    padding: 50px 16px;
-  }
 
   /* Process / step bar */
   .flowx-process-area {
@@ -3590,7 +2976,6 @@ ul {
   }
 
   .container,
-  .container1,
   .container2 {
     padding-left: 16px;
     padding-right: 16px;
@@ -3650,13 +3035,6 @@ ul {
   }
 
   /* Why choose cards spacing */
-  .why-list {
-    gap: 14px;
-  }
-
-  .why-list li {
-    padding: 18px 16px;
-  }
 
   /* Process cards full-width stack (arrows hidden earlier for <=1100px) */
   .flowx-card {
@@ -3704,7 +3082,6 @@ ul {
   .commen-title-heading h2,
   .testimonials-title,
   .industry-title,
-  .why-title,
   .flowx-title {
     font-size: 24px;
   }
@@ -3719,7 +3096,7 @@ ul {
   }
 
   /* Reduce global paddings */
-  .why-choose-section,
+  
   .flowx-process-area,
   .Tech-Stacks,
   .home6-integration-section {
@@ -3728,18 +3105,12 @@ ul {
   }
 
   /* Floating WhatsApp button reposition & scale */
-  .store-whatsapp {
-    right: 16px;
-    bottom: 16px;
-    padding: 16px;
-    font-size: 28px;
-    line-height: 32px;
-  }
 
   /* Floating chat button smaller and closer to edge */
   .chat-fab {
-    bottom: 20px;
-    right: 20px;
+    bottom: 20px !important;
+    right: 20px !important;
+    left: auto !important;
     width: 56px;
     height: 56px;
   }
@@ -3815,7 +3186,7 @@ ul {
     width: 230px;
   }
 
-  .why-title,
+  
   .flowx-title {
     font-size: 22px;
   }

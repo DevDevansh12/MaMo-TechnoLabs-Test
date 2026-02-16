@@ -1,0 +1,204 @@
+extends layout
+
+block content
+    // Quill CSS
+    link(href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet")
+
+    .admin-wrapper
+        .container
+            .admin-card
+                .admin-header(style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;")
+                    h2(style="font-size: 2rem; margin: 0; color: #333; font-weight: 700;") Admin Blog Dashboard
+                    .admin-actions(style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;")
+                        if adminEmail
+                            span(style="color: #666; font-size: 0.95rem;") Logged in as: #{adminEmail}
+                        a.btn-logout(href="/admin/logout" style="padding: 10px 20px; background: #dc3545; color: white; text-decoration: none; border-radius: 5px; font-size: 0.95rem; font-weight: 500;") Logout
+
+                form(action="/admin/blog" method="POST" enctype="multipart/form-data" id="blogForm")
+
+                    .form-group
+                        label(for="title") Blog Title
+                        input(type="text" name="title" id="title" placeholder="Enter blog title" required)
+
+                    .form-group
+                        label(for="bannerImage") Banner Image
+                        input(type="file" name="bannerImage" id="bannerImage" accept="image/*")
+
+                    .form-group
+                        label(for="metaTitle") Meta Title (SEO)
+                        input(type="text" name="metaTitle" id="metaTitle" placeholder="Enter meta title")
+
+                    .form-group
+                        label(for="metaDescription") Meta Description (SEO)
+                        textarea(name="metaDescription" id="metaDescription" rows="3" placeholder="Enter meta description")
+
+                    .form-group
+                        label(for="focusKeywords") Focus Keywords (SEO)
+                        input(type="text" name="focusKeywords" id="focusKeywords" placeholder="keyword1, keyword2, keyword3")
+                        small.form-text Separate keywords with commas
+
+                    .form-group
+                        label(for="content") Blog Content
+                        #editor(style="height: 400px; background: white;")
+                        input(type="hidden" name="content" id="content")
+
+                    button.btn-submit(type="submit") Publish Blog
+
+                style.
+                    .admin-wrapper {
+                        min-height: 100vh;
+                        padding: 40px 0;
+                        background: #f5f5f5;
+                    }
+                    .container {
+                        max-width: 900px;
+                        margin: 0 auto;
+                        padding: 0 15px;
+                    }
+                    .admin-card {
+                        background: white;
+                        padding: 40px;
+                        border-radius: 10px;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    }
+                    .form-group {
+                        margin-bottom: 25px;
+                    }
+                    .form-group label {
+                        display: block;
+                        margin-bottom: 8px;
+                        font-weight: 600;
+                        color: #333;
+                        font-size: 0.95rem;
+                    }
+                    .form-group input,
+                    .form-group textarea {
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #ddd;
+                        border-radius: 5px;
+                        font-size: 0.95rem;
+                        box-sizing: border-box;
+                    }
+                    .form-group input:focus,
+                    .form-group textarea:focus {
+                        outline: none;
+                        border-color: #4CAF50;
+                    }
+                    .form-text {
+                        display: block;
+                        margin-top: 5px;
+                        font-size: 0.85rem;
+                        color: #666;
+                    }
+                    .btn-submit {
+                        width: 100%;
+                        padding: 14px;
+                        background: #4CAF50;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: background 0.3s;
+                    }
+                    .btn-submit:hover {
+                        background: #45a049;
+                    }
+                    .btn-logout:hover {
+                        background: #c82333 !important;
+                    }
+                    .ql-editor {
+                        min-height: 350px;
+                        font-size: 16px;
+                    }
+                    .ql-toolbar {
+                        background: #f8f9fa;
+                        border-radius: 5px 5px 0 0;
+                    }
+                    #editor {
+                        border-radius: 0 0 5px 5px;
+                    }
+                    
+                    @media (max-width: 768px) {
+                        .admin-card {
+                            padding: 30px 25px;
+                        }
+                        .admin-header h2 {
+                            font-size: 1.6rem !important;
+                        }
+                        .admin-actions {
+                            width: 100%;
+                            justify-content: space-between;
+                        }
+                    }
+                    
+                    @media (max-width: 576px) {
+                        .admin-wrapper {
+                            padding: 20px 0;
+                        }
+                        .admin-card {
+                            padding: 25px 20px;
+                        }
+                        .admin-header {
+                            flex-direction: column;
+                            align-items: flex-start !important;
+                        }
+                        .admin-header h2 {
+                            font-size: 1.4rem !important;
+                        }
+                        .admin-actions {
+                            width: 100%;
+                            flex-direction: column;
+                            align-items: flex-start !important;
+                        }
+                        .btn-logout {
+                            width: 100%;
+                            text-align: center;
+                        }
+                        .ql-editor {
+                            min-height: 250px;
+                        }
+                    }
+
+    // Quill JS
+    script(src="https://cdn.quilljs.com/1.3.6/quill.js")
+    script.
+        // Initialize Quill editor
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                    [{ 'font': [] }],
+                    [{ 'size': ['small', false, 'large', 'huge'] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'script': 'sub'}, { 'script': 'super' }],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'indent': '-1'}, { 'indent': '+1' }],
+                    [{ 'align': [] }],
+                    ['blockquote', 'code-block'],
+                    ['link', 'image', 'video'],
+                    ['clean']
+                ]
+            },
+            placeholder: 'Write your blog content here...'
+        });
+
+        // Handle form submission
+        document.getElementById('blogForm').addEventListener('submit', function(e) {
+            // Get HTML content from Quill
+            var content = quill.root.innerHTML;
+            
+            // Set it to hidden input
+            document.getElementById('content').value = content;
+            
+            // Check if content is empty
+            if (quill.getText().trim().length === 0) {
+                e.preventDefault();
+                alert('Please add some content to your blog post');
+                return false;
+            }
+        });

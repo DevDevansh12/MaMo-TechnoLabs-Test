@@ -1,42 +1,46 @@
 doctype html
 html(lang="en" dir="ltr")
-  head
-    meta(charset="utf-8")
-    meta(name="description" content="MaMo TechnoLabs is a leading software, web and mobile app development company in Vadodara delivering custom IT solutions to grow your business.")
-    meta(name="abstract" content="Mamo Technologies empowers businesses through technology, with custom software development, AI/ML, IoT, and blockchain solutions.")
-    meta(name="keywords" content="Mamo Technologies")
-    meta(name="Generator" content="Drupal 10 (https://www.drupal.org)")
-    meta(name="MobileOptimized" content="width")
-    meta(name="HandheldFriendly" content="true")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon")
-    
-    title= title ? `${title} | MaMo TechnoLabs` : 'MaMo TechnoLabs | Software & Web Development Vadodara'
-    
-    link(rel="stylesheet" media="all" href="/css/style2.css")
-    link(rel="stylesheet" media="all" href="/css/style1.css")
-    
-    script(src="/js/jquery.form.min.js")
-    script(async src="https://www.googletagmanager.com/gtag/js?id=G-1BESF224BJ")
-    script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-1BESF224BJ');
-  
-  body(class=bodyClass || 'path-frontpage page-node-type-static-pages')
-    a.visually-hidden.focusable.skip-link(href="#main-content") Skip to main content
-    
-    include partials/header
-    
-    main.main
-      .dialog-off-canvas-main-canvas(data-off-canvas-main-canvas="")
-        .layout-container
-          block content
-    
-    include partials/footer
-    
-    script(src="/js/jquery.min.js")
-    script(src="/js/bootstrap.bundle.min.js")
-    script(src="/js/custom.js")
-    script(src="/js/js/main.js")
+head
+meta(charset="utf-8")
+meta(name="description" content=metaDescription || "MaMo TechnoLabs is a leading software, web and mobile app development company in Vadodara delivering custom IT solutions to grow your business.")
+meta(name="abstract" content="Mamo Technologies empowers businesses through technology, with custom software development, AI/ML, IoT, and blockchain solutions.")
+if focusKeywords && focusKeywords.length > 0
+  meta(name="keywords" content=focusKeywords.join(', '))
+else
+  meta(name="keywords" content="Mamo Technologies")
+meta(name="viewport" content="width=device-width, initial-scale=1.0")
+if canonicalUrl
+  link(rel="canonical" href=canonicalUrl)
+link(rel="icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon")
+title= metaTitle ? metaTitle : (title ? `${title} | MaMo TechnoLabs` : 'MaMo TechnoLabs | Software & Web Development Vadodara')
+link(rel="stylesheet" media="all" href="/css/style2.css")
+link(rel="stylesheet" media="all" href="/css/style1.css")
+link(rel="stylesheet" href="/css/animate.min.css")
+link(rel="stylesheet" href="/css/swiper-bundle.min.css")
+link(rel="stylesheet" href="/css/flaticon_mycollection.css")
+link(rel="stylesheet" href="/css/remixicon.css")
+link(rel="stylesheet" href="/css/scrollCue.min.css")
+link(rel="stylesheet" href="/css/style.css")
+script(src="/js/jquery.form.min.js")
+script(async src="https://www.googletagmanager.com/gtag/js?id=G-1BESF224BJ")
+script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1BESF224BJ');
+body(class=bodyClass || 'path-frontpage page-node-type-static-pages')
+a.visually-hidden.focusable.skip-link(href="#main-content") Skip to main content
+
+include partials/header
+
+main.main
+.dialog-off-canvas-main-canvas(data-off-canvas-main-canvas="")
+.layout-container
+block content
+
+include partials/footer
+
+script(src="/js/jquery.min.js")
+script(src="/js/bootstrap.bundle.min.js")
+script(src="/js/custom.js")
+script(src="/js/main.js")
