@@ -43,14 +43,22 @@ const upload = multer({ storage: storage });
 // MongoDB Connection
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/mamoBlog', {
+    // Use MongoDB Atlas connection string from environment variable
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/mamoBlog';
+    
+    await mongoose.connect(mongoURI, {
       serverSelectionTimeoutMS: 5000,
     });
     console.log('MongoDB Connected Successfully');
   } catch (err) {
     console.error('MongoDB Connection Error:', err.message);
-    console.log('Make sure MongoDB is running. Start it with: mongod');
-    process.exit(1);
+    if (!process.env.MONGODB_URI) {
+      console.log('Make sure MongoDB is running locally or set MONGODB_URI environment variable');
+    }
+    // Don't exit in serverless environment
+    if (process.env.NODE_ENV !== 'production') {
+      process.exit(1);
+    }
   }
 };
 
@@ -58,8 +66,8 @@ const connectDB = async () => {
 connectDB();
 
 // Admin credentials (in production, use environment variables and hashed passwords)
-const ADMIN_EMAIL = 'admin@gmail.com';
-const ADMIN_PASSWORD = 'admin@123';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@gmail.com';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin@123';
 
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {
@@ -283,7 +291,12 @@ app.use((_req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log('If you see MongoDB connection errors, make sure MongoDB is running');
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log('If you see MongoDB connection errors, make sure MongoDB is running');
+  });
+}
+
+// Export for Vercel
+module.exports = app;
