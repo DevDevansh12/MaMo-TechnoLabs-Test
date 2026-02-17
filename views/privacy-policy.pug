@@ -1,6 +1,142 @@
 extends layout
 
 block content
-  section.policy-section
+  // Start Page Banner Area
+  .page-banner-area
+    .container-fluid
+      .row.justify-content-center.align-items-center.g-4(data-cues='slideInUp' data-duration='1000')
+        .col-xl-8.col-md-12
+          .page-banner-content
+            .content.section-title-animation.animation-style1
+              h2.title-animation Privacy Policy
+
+  // Start Privacy Policy Content Area
+  .ptb-120
     .container
-      h1 Privacy Policy
+      .row.justify-content-center
+        .col-lg-10
+          .policy-content
+            p.last-updated 
+              strong Last updated: 
+              | 17/02/2026
+            
+            p Mamotechno Labs ("we", "our", "us") values your privacy. This Privacy Policy explains how we collect, use, and protect your information.
+            
+            h3 1. Information We Collect
+            p We may collect:
+            ul
+              li 
+                strong Personal Information: 
+                | name, email, phone number, company name (via contact forms)
+              li 
+                strong Technical Information: 
+                | IP address, browser type, device information
+              li 
+                strong Usage Data: 
+                | pages visited, time spent on the Website
+            
+            h3 2. How We Use Your Information
+            p We use your information to:
+            ul
+              li Respond to inquiries
+              li Provide services
+              li Improve our Website and user experience
+              li Communicate updates or business information
+            
+            h3 3. Cookies
+            p We may use cookies or similar technologies to analyze traffic and improve functionality. You can disable cookies through your browser settings.
+            
+            h3 4. Data Sharing
+            p We do not sell or rent your personal data.
+            p We may share data only:
+            ul
+              li With service providers assisting us
+              li If required by law
+              li To protect our legal rights
+            
+            h3 5. Data Security
+            p We implement reasonable security measures to protect your information. However, no method of transmission over the internet is 100% secure.
+            
+            h3 6. Data Retention
+            p We retain personal data only as long as necessary for business or legal purposes.
+            
+            h3 7. Your Rights
+            p Depending on your location, you may have the right to:
+            ul
+              li Access your personal data
+              li Request correction or deletion
+              li Withdraw consent
+            p To exercise these rights, contact us using the details below.
+            
+            h3 8. Third-Party Services
+            p Our Website may use third-party tools (analytics, hosting, etc.). These services have their own privacy policies.
+            
+            h3 9. Children's Privacy
+            p Our Website is not intended for children under the age of 13. We do not knowingly collect children's personal data.
+            
+            h3 10. Changes to This Policy
+            p We may update this Privacy Policy at any time. Updates will be posted on this page.
+            
+            h3 11. Contact Us
+            p For privacy-related questions, contact us at:
+            p 
+              i.fa-solid.fa-envelope
+              |  
+              a(href="mailto:info@mamotechnolabs.com") info@mamotechnolabs.com
+  
+  style.
+    .policy-content {
+      background: #ffffff;
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    }
+    .policy-content .last-updated {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+    .policy-content h3 {
+      font-size: 24px;
+      color: #111827;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .policy-content p {
+      color: #4b5563;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .policy-content ul {
+      margin-left: 25px;
+      margin-bottom: 20px;
+    }
+    .policy-content ul li {
+      color: #4b5563;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    .policy-content a {
+      color: #1fa97f;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .policy-content a:hover {
+      color: #0b3c3f;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .policy-content {
+        padding: 30px 20px;
+      }
+      .policy-content h3 {
+        font-size: 20px;
+      }
+      .policy-content p,
+      .policy-content ul li {
+        font-size: 15px;
+      }
+    }

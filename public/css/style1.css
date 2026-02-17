@@ -4576,10 +4576,10 @@ span.we-re-hiring {
 }
 
 .common-home-sect4 .fintech1-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 9;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    z-index: 1;
     height: auto
 }
 
@@ -7852,3 +7852,337 @@ a.back-btn i,
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+/* ========================================
+   ENHANCED RESPONSIVE FINTECH SECTIONS
+   ======================================== */
+
+/* Floating Icon Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.floating-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Base Styles for All Sections */
+.common-home-sect4 .fintech-img-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.common-home-sect4 .fintech1-img {
+    position: relative !important;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); */
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.common-home-sect4 .fintech1-img:hover {
+    transform: scale(1.05);
+}
+
+.common-home-sect4 .fintech1-icon {
+    position: absolute;
+    z-index: 10;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+/* Desktop Styles (1200px and above) */
+@media screen and (min-width: 1200px) {
+    .common-home-sect4 .fintech1-img {
+        max-width: 650px;
+    }
+    
+    .common-home-sect4-wrap.slide-1-bg .fintech1-icon {
+        top: 80px;
+        right: 120px;
+        width: 92px;
+        height: 92px;
+    }
+    
+    .common-home-sect4-wrap.slide-2-bg .fintech1-icon {
+        top: 100px;
+        right: 140px;
+        width: 92px;
+        height: 92px;
+    }
+    
+    .common-home-sect4-wrap.slide-3-bg .fintech1-icon {
+        top: 90px;
+        right: 130px;
+        width: 92px;
+        height: 92px;
+    }
+    
+    .common-home-sect4-wrap.slide-4-bg .fintech1-icon {
+        top: 95px;
+        right: 150px;
+        width: 92px;
+        height: 92px;
+    }
+}
+
+/* Laptop Styles (992px to 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .common-home-sect4 .fintech1-img {
+        max-width: 500px;
+    }
+    
+    .common-home-sect4-wrap.slide-1-bg .fintech1-icon {
+        top: 60px;
+        right: 90px;
+        width: 75px;
+        height: 75px;
+    }
+    
+    .common-home-sect4-wrap.slide-2-bg .fintech1-icon {
+        top: 70px;
+        right: 100px;
+        width: 75px;
+        height: 75px;
+    }
+    
+    .common-home-sect4-wrap.slide-3-bg .fintech1-icon {
+        top: 65px;
+        right: 95px;
+        width: 75px;
+        height: 75px;
+    }
+    
+    .common-home-sect4-wrap.slide-4-bg .fintech1-icon {
+        top: 68px;
+        right: 105px;
+        width: 75px;
+        height: 75px;
+    }
+}
+
+/* Tablet Styles (768px to 991px) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .common-home-sect4 .fintech1-img {
+        max-width: 450px;
+    }
+    
+    .common-home-sect4-wrap.slide-1-bg .fintech1-icon {
+        top: 50px;
+        right: 70px;
+        width: 65px;
+        height: 65px;
+    }
+    
+    .common-home-sect4-wrap.slide-2-bg .fintech1-icon {
+        top: 55px;
+        right: 80px;
+        width: 65px;
+        height: 65px;
+    }
+    
+    .common-home-sect4-wrap.slide-3-bg .fintech1-icon {
+        top: 52px;
+        right: 75px;
+        width: 65px;
+        height: 65px;
+    }
+    
+    .common-home-sect4-wrap.slide-4-bg .fintech1-icon {
+        top: 54px;
+        right: 85px;
+        width: 65px;
+        height: 65px;
+    }
+    
+    .common-sect-para h3 {
+        font-size: 32px;
+    }
+    
+    .common-sect-para p.para {
+        font-size: 15px;
+    }
+}
+
+/* Mobile Styles (below 768px) */
+@media screen and (max-width: 767px) {
+    .common-home-sect4 .row {
+        flex-direction: column;
+    }
+    
+    .common-home-sect4 .fintech-img-wrap {
+        margin-top: 30px;
+        padding: 10px;
+    }
+    
+    .common-home-sect4 .fintech1-img {
+        max-width: 100%;
+        border-radius: 15px;
+        transition: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .common-home-sect4 .fintech1-img:hover {
+        transform: none !important;
+    }
+    
+    .common-home-sect4 .fintech1-icon {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+    
+    .floating-icon {
+        animation: none !important;
+    }
+    
+    .common-home-sect4-wrap {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .common-home-sect4-wrap.slide-1-bg .fintech1-icon {
+        top: 30px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .common-home-sect4-wrap.slide-2-bg .fintech1-icon {
+        top: 35px;
+        right: 45px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .common-home-sect4-wrap.slide-3-bg .fintech1-icon {
+        top: 32px;
+        right: 42px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .common-home-sect4-wrap.slide-4-bg .fintech1-icon {
+        top: 34px;
+        right: 48px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .common-sect-para h3 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    
+    .common-sect-para p.para {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    .common-sect-para .btn-row {
+        margin: 20px 0;
+    }
+    
+    /* Disable AOS animations on mobile */
+    [data-aos] {
+        pointer-events: auto !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    [data-aos].aos-animate {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Extra Small Mobile (below 480px) */
+@media screen and (max-width: 480px) {
+    .common-home-sect4-wrap.slide-1-bg .fintech1-icon,
+    .common-home-sect4-wrap.slide-2-bg .fintech1-icon,
+    .common-home-sect4-wrap.slide-3-bg .fintech1-icon,
+    .common-home-sect4-wrap.slide-4-bg .fintech1-icon {
+        width: 40px;
+        height: 40px;
+        top: 20px;
+        right: 25px;
+        animation: none !important;
+        opacity: 1 !important;
+    }
+    
+    .common-sect-para h3 {
+        font-size: 24px;
+    }
+    
+    .common-sect-para p.para {
+        font-size: 13px;
+    }
+    
+    /* Ensure images are visible */
+    .common-home-sect4 .fintech1-img,
+    .common-home-sect4 .fintech1-icon,
+    .common-home-sect4-wrap {
+        opacity: 1 !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Smooth Scroll Animation - Desktop Only */
+@media screen and (min-width: 768px) {
+    .common-home-sect4-wrap {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Image Loading Effect - Desktop Only */
+@media screen and (min-width: 768px) {
+    .fintech1-img {
+        opacity: 0;
+        animation: fadeIn 1s ease 0.3s forwards;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Ensure proper column alignment */
+.common-home-sect4 .row {
+    display: flex;
+    align-items: center;
+}
+
+.common-home-sect4 .col-lg-6 {
+    display: flex;
+    align-items: center;
+}
+

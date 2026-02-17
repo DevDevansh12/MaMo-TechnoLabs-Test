@@ -740,8 +740,7 @@ main.main
                   <p>We leverage cutting-edge HR technology to streamline processes and provide data-driven insights.</p>
                   </div>
       // End Consulting Choose Area
-            // Start Footer Area
-footer
+           footer
   .common-footer-wrapper-outer
     .common-footer-wrapper
 
@@ -750,32 +749,30 @@ footer
         .container
           .row
             .col-sm-12
-              .common-sect-para
+             .common-sect-para
                 h3(data-aos='fade-up' data-aos-delay='300' data-aos-anchor='.common-footer-wrapper-outer')
                   | Believe in possibilities and navigate
                   br
                   | beyond the expected with us !
                 .btn-row(data-aos='fade-up' data-aos-delay='600' data-aos-anchor='.common-footer-wrapper-outer')
 
-      
-
       // ===== MAIN FOOTER =====
       footer.common-footer2
-        .container
+        .container.py-5
 
           // MAIN ROW
-          .row
+          .row.g-4.g-lg-5
 
-            // LEFT SECTION
-            .col-lg-8.col-md-7
+            // LEFT SECTION - Company Info
+            .col-12.col-lg-4.mb-4.mb-lg-0.pe-lg-4
               .footer-left
-                .logo-wrap
+                .logo-wrap.mb-4
                   img(src='images/favicon.ico' alt='Mamo log' width='69' height='69' loading='lazy')
 
-                p.para
-                  | MaMo TechnoLabs LLP Provide best web development solution & Customized Strategies To Our Clients Based On Their Business Goals and Objectives.
+                p.para.mb-5(style='line-height: 1.9; font-size: 15px;')
+                  | MaMo Technolabs LLP is an IT software development and training company based in Vadodara, Gujarat, India. We provide Laravel development, web application development, mobile app development, custom software solutions, and professional IT training through MaMo Academy.
 
-                ul.social-ul.mt-3
+                ul.social-ul.mt-4.mb-5
                   li
                     a(href='https://www.facebook.com/p/MaMo-Technolabs-LLP-61551035098279/' target='_blank')
                       img(src='images/facebook-logo.svg' alt='facebook' loading='lazy')
@@ -786,7 +783,7 @@ footer
                     a(href='https://www.instagram.com/mamotechnolabs' target='_blank')
                       img(src='images/instagram-icon-logo.svg' alt='instagram' loading='lazy')
 
-                ul.iso-ul.mt-3
+                ul.iso-ul.mt-4
                   li
                     img(src='images/77942-I%2526M%20BU%20-%20CMMI%20Development%20-%20Maturity%20Level%20-%203.png' alt='CMMI' loading='lazy')
                   li
@@ -794,38 +791,41 @@ footer
                   li
                     img(src='images/iso2.png' alt='iso2' loading='lazy')
 
-            // RIGHT SECTION
-            .col-lg-4.col-md-5
-              .row
+            // MIDDLE SECTION - Quick Links
+            .col-6.col-sm-4.col-md-3.col-lg-2.mb-4.mb-lg-0.px-lg-3
+              h4.footer-title.text-white.mb-4(style='font-size: 18px; font-weight: 600;') Quick Links
+              ul.footer-links
+                li.mb-3
+                  a(href='/' style='font-size: 15px;') Home
+                li.mb-3
+                  a(href='/about-us' style='font-size: 15px;') About Us
+                li.mb-3
+                  a(href='/contact' style='font-size: 15px;') Contact
 
-                // Quick Links
-                .col-6
-                  h4.footer-title.text-white Quick Links
-                  ul.footer-links
-                    li
-                      a(href='/') Home
-                    li
-                      a(href='/about-us') About Us
-                    li
-                      a(href='/contact') Contact
-
-                // Contact Info
-                .col-6
-                  h4.footer-title.text-white Contact Us
-                  ul.footer-contact.text-white
-                    li +91 9325910095
-                    li info@mamotechnolabs.com
-                    li Dubai
-                    li Vadodara, Gujarat
-                    li Bogota, Colombia
-                    li Lima, Peru
-                    li Panama
+            // RIGHT SECTION - Contact Info
+            .col-12.col-sm-8.col-md-9.col-lg-6.ps-lg-4
+              h4.footer-title.text-white.mb-4(style='font-size: 18px; font-weight: 600;') Contact Us
+              .footer-contact.text-white
+                .mb-4
+                  p.mb-2(style='font-weight: 600; font-size: 15px;')
+                    | Office Address:
+                  p.mb-0(style='line-height: 2; font-size: 15px;') Office No 27 to 29, RAAMA EMPERRO, 4th Floor, Besides Shell Petrol Pump, Jagdish Farshan Outlet, Manjalpur, Vadodara, Gujarat – 390011
+                .mb-4
+                  p.mb-2(style='font-weight: 600; font-size: 15px;')
+                    | Phone:
+                  p.mb-0(style='font-size: 15px;') 
+                    a(href='tel:+919325910095' style='color: #fff; text-decoration: none;') +91 9325910095
+                .mb-0
+                  p.mb-2(style='font-weight: 600; font-size: 15px;')
+                    | Email:
+                  p.mb-0(style='font-size: 15px;') 
+                    a(href='mailto:info@mamotechnolabs.com' style='color: #fff; text-decoration: none;') info@mamotechnolabs.com
 
           // ===== COPYRIGHT ROW (FIXED POSITION) =====
-          .row.common-footer3-row.align-items-center.mt-4.pt-3(style='border-top:1px solid rgba(255,255,255,0.15);')
+          .row.common-footer3-row.align-items-center.mt-5.pt-4(style='border-top:1px solid rgba(255,255,255,0.15);')
 
-            .col-lg-8.col-md-7.col-12
-              p.sm-para.mb-0
+            .col-lg-8.col-md-7.col-12.mb-3.mb-md-0
+              p.sm-para.mb-0(style='font-size: 14px;')
                 | © 2026 Mamo Technologies | All rights reserved
 
             .col-lg-4.col-md-5.col-12.text-lg-end.text-start.mt-2.mt-lg-0
@@ -855,31 +855,6 @@ footer
               .btn-text.btn-duplicate-text
                 a.btn-click.hide-cookie-card-btn(href='#')
                   span Accept All
-                  .cookie-card.d-none
-                    .cookie-card-head
-                      img(src='images/cookie.svg' alt='cookie' width='48' height='48' loading='lazy')
-                      a.hide-cookie-card-btn(href='#')
-                        img(src='images/Close_MD.svg' alt='Close_MD' width='24' height='24' loading='lazy')
-                    .cookie-card-body
-                      p.para
-                        | Our website uses cookies to enhance your browsing
-                        | experience, personalize content, and analyze our traffic. By
-                        | clicking &quot;Accept All&quot;, you agree to the storing of cookies on your
-                        | device to improve site navigation, analyze site usage, and assist in
-                        | our marketing efforts. For more detailed information, please visit
-                        | our&nbsp;&nbsp;
-                        br
-                        a(href='privacy-policy.html' target='_blank' rel='noopener noreferrer') Privacy Policy
-                        | .
-                      .btn-row
-                        .btn.btn-normal
-                          .btn-fill.btn-original-fill &nbsp;
-                          .btn-text.btn-original-text
-                            a.btn-click.hide-cookie-card-btn(href='#')
-                              span Accept All
-                          .btn-text.btn-duplicate-text
-                            a.btn-click.hide-cookie-card-btn(href='#')
-                              span Accept All
                   // FLOATING BUTTON
                   #chatToggle.chat-fab
                     // Replace with your own icon if needed

@@ -89,51 +89,6 @@ a.visually-hidden.focusable.skip-link(href='#main-content')
                                       | Virtual Assistant Services
                                     a.nav-link-b(href='packaging-design') Packaging Design Services
                           #v-pills-products.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-products-tab' tabindex='0')
-              //
-                <li class="dropdown mega-dropdown">
-                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown"
-                data-bs-auto-close="outside" aria-expanded="false">Who we are<i
-                class="ph-caret-down"></i></a>
-                <div class="dropdown-menu mega-dropdown-menu">
-                <div class="container">
-                <div class="row">
-                <div class="col-md-4 link-col-left">
-                <div class="nav-pills" id="a-pills-tab" href="#" role="tablist"
-                aria-orientation="vertical">
-                <p><a class="nav-link-a active" href="about-us">About Us </a><a
-                class="nav-link-a" href="careers-life-at-Mamo.html">Life
-                at Mamo </a></p>
-                <p><a class="nav-link-a careers-life-btn-a"
-                href="careers-life-at-Mamo.html#contact-form-sect.html">Careers</a>
-                </p>
-                <p><a class="nav-link-a"
-                href="corporate-social-responsibility.html">Corporate Social
-                Responsibility </a><a class="nav-link-a"
-                href="contact">Contact Us </a></p>
-                </div>
-                </div>
-                <div class="col-md-8 link-col-right">
-                <div class="tab-content" id="a-pills-tabContent">
-                <div class="tab-pane fade show active" id="a-pills-about-us"
-                role="tabpanel" aria-labelledby="a-pills-about-us-tab"
-                tabindex="0">
-                <div class="menu-para">
-                <h6>About Mamo </h6>
-                <p class="para">Calling India home, while transforming
-                stories in 50+ countries, Mamo  has helped industry
-                leaders innovate ahead for 20+ years, leveraging the
-                best, most robust, and the most exciting digital
-                technologies out there. Here’s our story.</p>
-                <p><a class="know-more-btn" href="about-us">Know
-                More</a></p>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </li>
               li.dropdown.mega-dropdown
                 a.dropdown-toggle(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false')
                   | Blog
@@ -735,8 +690,7 @@ main.main
                   <p>We leverage cutting-edge HR technology to streamline processes and provide data-driven insights.</p>
                   </div>
       // End Consulting Choose Area
-           // Start Footer Area
-footer
+          footer
   .common-footer-wrapper-outer
     .common-footer-wrapper
 
@@ -745,32 +699,30 @@ footer
         .container
           .row
             .col-sm-12
-              .common-sect-para
+             .common-sect-para
                 h3(data-aos='fade-up' data-aos-delay='300' data-aos-anchor='.common-footer-wrapper-outer')
                   | Believe in possibilities and navigate
                   br
                   | beyond the expected with us !
                 .btn-row(data-aos='fade-up' data-aos-delay='600' data-aos-anchor='.common-footer-wrapper-outer')
 
-      
-
       // ===== MAIN FOOTER =====
       footer.common-footer2
-        .container
+        .container.py-5
 
           // MAIN ROW
-          .row
+          .row.g-4.g-lg-5
 
-            // LEFT SECTION
-            .col-lg-8.col-md-7
+            // LEFT SECTION - Company Info
+            .col-12.col-lg-4.mb-4.mb-lg-0.pe-lg-4
               .footer-left
-                .logo-wrap
+                .logo-wrap.mb-4
                   img(src='images/favicon.ico' alt='Mamo log' width='69' height='69' loading='lazy')
 
-                p.para
-                  | MaMo TechnoLabs LLP Provide best web development solution & Customized Strategies To Our Clients Based On Their Business Goals and Objectives.
+                p.para.mb-5(style='line-height: 1.9; font-size: 15px;')
+                  | MaMo Technolabs LLP is an IT software development and training company based in Vadodara, Gujarat, India. We provide Laravel development, web application development, mobile app development, custom software solutions, and professional IT training through MaMo Academy.
 
-                ul.social-ul.mt-3
+                ul.social-ul.mt-4.mb-5
                   li
                     a(href='https://www.facebook.com/p/MaMo-Technolabs-LLP-61551035098279/' target='_blank')
                       img(src='images/facebook-logo.svg' alt='facebook' loading='lazy')
@@ -781,7 +733,7 @@ footer
                     a(href='https://www.instagram.com/mamotechnolabs' target='_blank')
                       img(src='images/instagram-icon-logo.svg' alt='instagram' loading='lazy')
 
-                ul.iso-ul.mt-3
+                ul.iso-ul.mt-4
                   li
                     img(src='images/77942-I%2526M%20BU%20-%20CMMI%20Development%20-%20Maturity%20Level%20-%203.png' alt='CMMI' loading='lazy')
                   li
@@ -789,38 +741,41 @@ footer
                   li
                     img(src='images/iso2.png' alt='iso2' loading='lazy')
 
-            // RIGHT SECTION
-            .col-lg-4.col-md-5
-              .row
+            // MIDDLE SECTION - Quick Links
+            .col-6.col-sm-4.col-md-3.col-lg-2.mb-4.mb-lg-0.px-lg-3
+              h4.footer-title.text-white.mb-4(style='font-size: 18px; font-weight: 600;') Quick Links
+              ul.footer-links
+                li.mb-3
+                  a(href='/' style='font-size: 15px;') Home
+                li.mb-3
+                  a(href='/about-us' style='font-size: 15px;') About Us
+                li.mb-3
+                  a(href='/contact' style='font-size: 15px;') Contact
 
-                // Quick Links
-                .col-6
-                  h4.footer-title.text-white Quick Links
-                  ul.footer-links
-                    li
-                      a(href='/') Home
-                    li
-                      a(href='/about-us') About Us
-                    li
-                      a(href='/contact') Contact
-
-                // Contact Info
-                .col-6
-                  h4.footer-title.text-white Contact Us
-                  ul.footer-contact.text-white
-                    li +91 9325910095
-                    li info@mamotechnolabs.com
-                    li Dubai
-                    li Vadodara, Gujarat
-                    li Bogota, Colombia
-                    li Lima, Peru
-                    li Panama
+            // RIGHT SECTION - Contact Info
+            .col-12.col-sm-8.col-md-9.col-lg-6.ps-lg-4
+              h4.footer-title.text-white.mb-4(style='font-size: 18px; font-weight: 600;') Contact Us
+              .footer-contact.text-white
+                .mb-4
+                  p.mb-2(style='font-weight: 600; font-size: 15px;')
+                    | Office Address:
+                  p.mb-0(style='line-height: 2; font-size: 15px;') Office No 27 to 29, RAAMA EMPERRO, 4th Floor, Besides Shell Petrol Pump, Jagdish Farshan Outlet, Manjalpur, Vadodara, Gujarat – 390011
+                .mb-4
+                  p.mb-2(style='font-weight: 600; font-size: 15px;')
+                    | Phone:
+                  p.mb-0(style='font-size: 15px;') 
+                    a(href='tel:+919325910095' style='color: #fff; text-decoration: none;') +91 9325910095
+                .mb-0
+                  p.mb-2(style='font-weight: 600; font-size: 15px;')
+                    | Email:
+                  p.mb-0(style='font-size: 15px;') 
+                    a(href='mailto:info@mamotechnolabs.com' style='color: #fff; text-decoration: none;') info@mamotechnolabs.com
 
           // ===== COPYRIGHT ROW (FIXED POSITION) =====
-          .row.common-footer3-row.align-items-center.mt-4.pt-3(style='border-top:1px solid rgba(255,255,255,0.15);')
+          .row.common-footer3-row.align-items-center.mt-5.pt-4(style='border-top:1px solid rgba(255,255,255,0.15);')
 
-            .col-lg-8.col-md-7.col-12
-              p.sm-para.mb-0
+            .col-lg-8.col-md-7.col-12.mb-3.mb-md-0
+              p.sm-para.mb-0(style='font-size: 14px;')
                 | © 2026 Mamo Technologies | All rights reserved
 
             .col-lg-4.col-md-5.col-12.text-lg-end.text-start.mt-2.mt-lg-0
