@@ -984,26 +984,26 @@ main.main
                   render("row2");
                 // end of testi
                 // blogs
-                br
-                #portfolio-section.home7-portfolio-section
-                  .container3
-                    .row.mb-60.wow.animate.fadeInDown.animated(data-wow-delay='200ms' data-wow-duration='1500ms' style='\
-                    visibility: visible;\
-                    animation-duration: 1500ms;\
-                    animation-delay: 200ms;\
-                    ')
-                      .col-lg-12.d-flex.flex-column.align-items-center.gap-3.text-center
-                        .section-title3(style='max-width: 860px;')
-                          h2(style='font-family: sans-serif;') Our Blogs
-                        .section-title3(style='max-width: 860px;')
-                          p
-                            | Read insights, advice, and 
-                            span.gradient-text  practical experiences from 
-                            |       the 
-                            span.gradient-text  Mamo TechnoLabs team 
-                            |  as we share our learnings while 
-                            span.gradient-text  developing and enhancing digital products.
-                        .project-btn-duration-area
+                //- br
+                //- #portfolio-section.home7-portfolio-section
+                //-   .container3
+                //-     .row.mb-60.wow.animate.fadeInDown.animated(data-wow-delay='200ms' data-wow-duration='1500ms' style='\
+                //-     visibility: visible;\
+                //-     animation-duration: 1500ms;\
+                //-     animation-delay: 200ms;\
+                //-     ')
+                //-       .col-lg-12.d-flex.flex-column.align-items-center.gap-3.text-center
+                //-         .section-title3(style='max-width: 860px;')
+                //-           h2(style='font-family: sans-serif;') Our Blogs
+                //-         .section-title3(style='max-width: 860px;')
+                //-           p
+                //-             | Read insights, advice, and 
+                //-             span.gradient-text  practical experiences from 
+                //-             |       the 
+                //-             span.gradient-text  Mamo TechnoLabs team 
+                //-             |  as we share our learnings while 
+                //-             span.gradient-text  developing and enhancing digital products.
+                //-         .project-btn-duration-area
                           //
                             <a href="https://www.nethority.com/white-label-agency/"
                             target="_blank"
@@ -1021,48 +1021,48 @@ main.main
                           <div class="project-duration">
                           <h6>White - Label For Agencies <span>(2015-2024)</span></h6>
                           </div>
-                  .row.gy-5
-                    if blogs && blogs.length > 0
-                      each blog, index in blogs
-                        .col-lg-4.col-md-6.col-sm-12.wow.animate.fadeInDown.animated(data-wow-delay='200ms' data-wow-duration='1500ms' style='visibility: visible; animation-duration: 1500ms; animation-delay: 200ms;')
-                          .magnetic-wrap
-                            .portfolio-card2.magnetic-item.blog-card-home(style='height: 100%; display: flex; flex-direction: column;')
-                              .portfolio-img(style='height: 250px; overflow: hidden; background: #f8f9fa; display: flex; align-items: center; justify-content: center;')
-                                img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image(
-                                  decoding='async' 
-                                  width='1920' 
-                                  height='1200' 
-                                  src=blog.bannerImage || '/images/blog-page.png'
-                                  alt=blog.title
-                                  style='width: 100%; height: 100%; object-fit: contain;'
-                                )
-                                .details-btn-wrap
-                                  a.details-btn(href=`/blog/${blog.slug}`)
-                                    | Read More
-                                    svg(width='10' height='10' viewbox='0 0 10 10' xmlns='http://www.w3.org/2000/svg')
-                                      path(d='M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9' stroke-width='1.5' stroke-linecap='round')
-                                  .icon
-                                    i.bi.bi-plus-circle-fill
-                              .portfolio-content(style='padding: 20px; flex-grow: 1; display: flex; flex-direction: column;')
-                                .blog-date(style='color: #999; font-size: 0.85rem; margin-bottom: 10px;')= new Date(blog.createdAt).toDateString()
-                                h4(style='margin: 0 0 10px 0; font-size: 1.15rem; line-height: 1.3;')
-                                  a(href=`/blog/${blog.slug}` style='text-decoration: none; color: #333; transition: color 0.3s;')= blog.title
-                                if blog.metaDescription
-                                  - var description = blog.metaDescription.length > 80 ? blog.metaDescription.substring(0, 80) + '...' : blog.metaDescription
-                                  p(style='color: #666; font-size: 0.9rem; margin: 0 0 12px 0; line-height: 1.5; flex-grow: 1;')= description
-                                a.read-more-link(href=`/blog/${blog.slug}` style='display: inline-block; color: #4CAF50; font-weight: 600; font-size: 0.9rem; text-decoration: none;') 
-                                  | Read Full Article →
-                    else
-                      .col-12.text-center(style='padding: 60px 0;')
-                        h4(style='color: #999;') No blogs published yet.
-                        p(style='color: #666; margin-top: 10px;') Check back soon for our latest insights and articles.
+                  //- .row.gy-5
+                  //-   if blogs && blogs.length > 0
+                  //-     each blog, index in blogs
+                  //-       .col-lg-4.col-md-6.col-sm-12.wow.animate.fadeInDown.animated(data-wow-delay='200ms' data-wow-duration='1500ms' style='visibility: visible; animation-duration: 1500ms; animation-delay: 200ms;')
+                  //-         .magnetic-wrap
+                  //-           .portfolio-card2.magnetic-item.blog-card-home(style='height: 100%; display: flex; flex-direction: column;')
+                  //-             .portfolio-img(style='height: 250px; overflow: hidden; background: #f8f9fa; display: flex; align-items: center; justify-content: center;')
+                  //-               img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image(
+                  //-                 decoding='async' 
+                  //-                 width='1920' 
+                  //-                 height='1200' 
+                  //-                 src=blog.bannerImage || '/images/blog-page.png'
+                  //-                 alt=blog.title
+                  //-                 style='width: 100%; height: 100%; object-fit: contain;'
+                  //-               )
+                  //-               .details-btn-wrap
+                  //-                 a.details-btn(href=`/blog/${blog.slug}`)
+                  //-                   | Read More
+                  //-                   svg(width='10' height='10' viewbox='0 0 10 10' xmlns='http://www.w3.org/2000/svg')
+                  //-                     path(d='M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9' stroke-width='1.5' stroke-linecap='round')
+                  //-                 .icon
+                  //-                   i.bi.bi-plus-circle-fill
+                  //-             .portfolio-content(style='padding: 20px; flex-grow: 1; display: flex; flex-direction: column;')
+                  //-               .blog-date(style='color: #999; font-size: 0.85rem; margin-bottom: 10px;')= new Date(blog.createdAt).toDateString()
+                  //-               h4(style='margin: 0 0 10px 0; font-size: 1.15rem; line-height: 1.3;')
+                  //-                 a(href=`/blog/${blog.slug}` style='text-decoration: none; color: #333; transition: color 0.3s;')= blog.title
+                  //-               if blog.metaDescription
+                  //-                 - var description = blog.metaDescription.length > 80 ? blog.metaDescription.substring(0, 80) + '...' : blog.metaDescription
+                  //-                 p(style='color: #666; font-size: 0.9rem; margin: 0 0 12px 0; line-height: 1.5; flex-grow: 1;')= description
+                  //-               a.read-more-link(href=`/blog/${blog.slug}` style='display: inline-block; color: #4CAF50; font-weight: 600; font-size: 0.9rem; text-decoration: none;') 
+                  //-                 | Read Full Article →
+                  //-   else
+                  //-     .col-12.text-center(style='padding: 60px 0;')
+                  //-       h4(style='color: #999;') No blogs published yet.
+                  //-       p(style='color: #666; margin-top: 10px;') Check back soon for our latest insights and articles.
                     
-                    .col-12.text-center.mt-5
-                      a.primary-btn3.btn-hover(href='/blog' style='display: inline-block; padding: 14px 30px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: 600;')
-                        | View All Blogs
-                        svg(width='10' height='10' viewbox='0 0 10 10' xmlns='http://www.w3.org/2000/svg' style='margin-left: 8px;')
-                          path(d='M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9' stroke='currentColor' stroke-width='1.5' stroke-linecap='round')
-                        span
+                  //-   .col-12.text-center.mt-5
+                  //-     a.primary-btn3.btn-hover(href='/blog' style='display: inline-block; padding: 14px 30px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: 600;')
+                  //-       | View All Blogs
+                  //-       svg(width='10' height='10' viewbox='0 0 10 10' xmlns='http://www.w3.org/2000/svg' style='margin-left: 8px;')
+                  //-         path(d='M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9' stroke='currentColor' stroke-width='1.5' stroke-linecap='round')
+                  //-       span
                       
                      
               style.
