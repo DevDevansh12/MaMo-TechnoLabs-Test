@@ -2664,11 +2664,11 @@ a.close.disabled {
 
 :root {
     --BodyBg: #ffffff;
-    --Blue: #034EA2;
+    --Blue: #00894d;
     --White: #ffffff;
     --Black: #09090B;
     --Black1: #000000;
-    --Primary: #034EA2;
+    --Primary: #00894d;
     --Secondary: #00ED87;
     --Success: #00ED87;
     --Grey-900: #18181B;
@@ -3306,7 +3306,7 @@ a:hover {
 }
 
 .text-gradient1 {
-    background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%);
+    background: linear-gradient(90deg, #00ED87 0%, #00894d 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(0, 0, 0, 0);
     background-clip: text;
@@ -3590,7 +3590,7 @@ a:hover {
 .common-footer-wrapper-outer {
     position: relative;
     overflow: hidden;
-    background:linear-gradient(180deg, rgba(0, 237, 135, 0) 0%, rgba(0, 237, 135, 0.2) 12.2%, #034EA2 44.55%);
+    background:linear-gradient(180deg, rgba(0, 237, 135, 0) 0%, rgba(0, 237, 135, 0.2) 12.2%, #00894d 44.55%);
     padding-bottom: 40px;
 }
 
@@ -3661,7 +3661,7 @@ a:hover {
 
 @media screen and (max-width:767px) {
     .common-footer-wrapper-outer {
-        background: linear-gradient(180deg, rgba(0, 237, 135, 0) 0%, rgba(0, 237, 135, 0.2) 12.2%, #034EA2 44.55%)
+        background: linear-gradient(180deg, rgba(0, 237, 135, 0) 0%, rgba(0, 237, 135, 0.2) 12.2%, #00894d 44.55%)
     }
 }
 
@@ -4516,7 +4516,7 @@ span.we-re-hiring {
 }
 
 .common-header .common-header-ul>li>a.show {
-    color: #034ea2
+    color: #00894d
 }
 
 .common-header .common-header-ul>li>a .ph-caret-down {
@@ -5804,7 +5804,7 @@ body .common-about-us-sect4 .slider-nav-about.last-item-active .next-slick-btn.s
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
-    background-image: linear-gradient(90deg, #00ED87 0%, #034EA2 100%);
+    background-image: linear-gradient(90deg, #00ED87 0%, #00894d 100%);
     background-repeat: no-repeat;
     background-size: 0 100%;
     transition: background-size .4s ease-in-out;
@@ -6330,12 +6330,12 @@ a.back-btn:hover i {
 }
 
 .nav-link-a:hover {
-    color: #034ea2
+    color: #00894d
 }
 
 .nav-link-a:hover,
 .nav-link-a.active {
-    color: #034ea2;
+    color: #00894d;
     background: #fff;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .0196078431);
     font-weight: 600
@@ -6372,13 +6372,13 @@ a.back-btn:hover i {
 }
 
 .nav-link-b:hover {
-    color: #034ea2;
+    color: #00894d;
     background: #f2f4f7;
     font-weight: 400
 }
 
 .nav-link-b.active {
-    color: #034ea2;
+    color: #00894d;
     background: #f2f4f7;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, .0196078431);
     font-weight: 600
@@ -6430,7 +6430,7 @@ a.back-btn:hover i {
     font-weight: 700;
     text-decoration: underline;
     text-align: left;
-    color: #034ea2
+    color: #00894d
 }
 
 .menu-card-h {
@@ -6523,7 +6523,7 @@ a.back-btn:hover i {
 
 .mobile-menu .nav-list li a.accordion-heading[aria-expanded=true] {
     background: #f2f6fa;
-    color: #034ea2
+    color: #00894d
 }
 
 .mobile-menu .nav-list li a.accordion-heading[aria-expanded=true] i.ph.ph-caret-down {
@@ -6789,11 +6789,11 @@ a.back-btn:hover i {
 }
 
 .services-info-card .right-card.card-c-overflow::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #034EA2 0%, #00ED87 100%)
+    background: linear-gradient(90deg, #00894d 0%, #00ED87 100%)
 }
 
 .services-info-card .right-card.card-c-overflow::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(90deg, #034EA2 0%, #00ED87 100%)
+    background: linear-gradient(90deg, #00894d 0%, #00ED87 100%)
 }
 
 @media screen and (min-width:768px) {
@@ -7364,7 +7364,7 @@ body .common-footer-wrapper-outer #vibe-section .slick-carousel-vibe .slick-list
 }
 
 .dark-body .common-footer-wrapper-outer {
-    background: linear-gradient(180deg, #0B1710 -6.58%, #0B1710 12.76%, #034EA2 70.6%, #0B1710 100%)
+    background: linear-gradient(180deg, #0B1710 -6.58%, #0B1710 12.76%, #00894d 70.6%, #0B1710 100%)
 }
 
 .dark-body .common-footer-wrapper-outer h3 {
