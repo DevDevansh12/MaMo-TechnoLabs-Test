@@ -3982,6 +3982,48 @@ span.we-re-hiring {
     }
 }
 
+@media screen and (max-width:767px){
+
+  .common-home-sect2 .content-box .common-sect-para{
+      margin-top: 0 !important;
+      display:block !important;
+      text-align:left !important;
+      right: 0;
+  }
+
+  .common-home-sect2 .carousel-item .head{
+      align-items:flex-start !important;
+  }
+
+}
+@media screen and (max-width:767px){
+
+  /* Make flex column */
+  .common-home-sect2 .carousel-item .head{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start !important;  /* push to RIGHT */
+  }
+
+  /* Ensure content takes full width but text aligns right */
+  .common-home-sect2 .content-box{
+      width:100% !important;
+      text-align:left !important;
+  }
+
+  .common-home-sect2 .common-sect-para{
+      display:block !important;
+      text-align:left !important;
+  }
+
+  .common-home-sect2 .heading,
+  .common-home-sect2 .heading h2,
+  .common-home-sect2 .para{
+      text-align:left !important;
+  }
+
+}
+
 .common-home-sect2 .content-box {
     position: relative;
     min-width: 400px;
@@ -4112,7 +4154,20 @@ span.we-re-hiring {
         margin-top: 0
     }
 }
-
+@media screen and (max-width:767px) {
+    .common-home-sect2 .heading {
+        max-width: 100%;
+        float: none;
+        text-align: right;
+        padding: 0 20px
+    }
+    
+    .common-home-sect2 .heading .para {
+        margin-top: 10px;
+        padding-right: 0;
+        text-align: right
+    }
+}
 .common-home-sect2 .heading .para {
     font-size: 18px;
     line-height: 1.6;
@@ -4137,6 +4192,10 @@ span.we-re-hiring {
     }
 }
 
+.common-home-sect2 .heading {
+    max-width: 400px;
+}
+
 @media screen and (max-width:767px) {
     .common-home-sect2 .heading {
         max-width: 100%;
@@ -4145,6 +4204,12 @@ span.we-re-hiring {
         padding: 0 20px;
     }
     
+@media screen and (max-width:767px) {
+    .common-home-sect2 .heading h2 {
+        font-size: 2.5rem;
+        line-height: 1.1em
+    }
+}
     .common-home-sect2 .heading .para {
         margin-top: 15px;
         padding-right: 0;
@@ -4158,7 +4223,9 @@ span.we-re-hiring {
         font-size: 13px;
     }
 }
-
+.common-home-sect2 .heading .text-gradient1 {
+    margin-top: -10px
+}
 .common-home-sect2 .scroll-img {
     width: auto;
     position: absolute;
@@ -7684,6 +7751,7 @@ a.back-btn i,
 }
 
 .hero-bg {
+    background-image: url("../images/hero.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -7837,8 +7905,45 @@ a.back-btn i,
     }
 
 }
-.hero-bg {
-    position: relative; 
+@media (max-width: 991px) {
+    .h-calc100vh-150 {
+        min-height: 70vh;
+    }
+
+    .hero-bg {
+        background-position: center top;
+    }
+}
+@media (max-width: 768px) {
+     
+    header,
+    .container,
+    .container-fluid,
+    .row,
+    .col-12 {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .hero-bg {
+    position: relative;
+    background-image: url("../images/hero.png"); 
+    background-size: cover;      
+    background-position:2.5% center;   
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+    width: 100vw;
+    min-height: 59vh;
+    background-color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 }
 
 .hero-logo {
