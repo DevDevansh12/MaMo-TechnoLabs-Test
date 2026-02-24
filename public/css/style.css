@@ -3986,7 +3986,7 @@ span.we-re-hiring {
     position: relative;
     min-width: 400px;
 }
-
+/* 
 @media screen and (min-width:1200px) and (max-width:1599px) {
     .common-home-sect2 .content-box {
         min-width: 350px;
@@ -4009,6 +4009,9 @@ span.we-re-hiring {
         display: flex;
         flex-direction: column;
     }
+    .common-home-sect2 .content-box {
+    width: 100%;
+}
     
     .common-home-sect2 .carousel-item .images-box {
         order: 1;
@@ -4019,7 +4022,7 @@ span.we-re-hiring {
         order: 2;
     }
 }
-
+ */
 .common-home-sect2 .content-box:after {
     display: block;
     clear: both;
@@ -4034,17 +4037,17 @@ span.we-re-hiring {
     position: relative;
     z-index: 9;
 }
-
+/* 
 @media screen and (max-width:767px) {
     .common-home-sect2 .content-box .common-sect-para {
         display: block !important;
         margin-bottom: 20px;
         margin-top: 0;
-           /* change center to flex-start */
-        padding: 0 15px;               /* small left spacing */
-        text-align: left !important ;             /* ensure text aligns left */
-    }
-}
+           
+        padding: 0 15px;             
+        text-align: left !important ;             
+    /* } */ 
+/* } */
 
 .common-home-sect2 .heading {
     max-width: 600px;
@@ -7415,7 +7418,13 @@ body .common-footer-wrapper-outer #vibe-section .slick-carousel-vibe .slick-list
         transform: translate(0)
     }
 }
-
+.hero-bg {
+    background-image: url("../images/hero.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
 .st,
 a,
 button,
@@ -7801,11 +7810,14 @@ a.back-btn i,
 
 .hero-logo {
     position: absolute;
-    top: 150px;              
-    left: 856px;             
-    width: 420px;            
-    height: 400px;           
-    max-width: 1000px;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;   /* This centers it */
+    width: 420px;
+    height: 400px;
+    max-width: 100%;
+
 
     background-image: url("../images/hero-circle1new.png");
     background-size: contain;
@@ -10546,24 +10558,29 @@ h2 {
 /* end  why mamo*/
 
 /* icons sections  */
+/* From Uiverse.io by wilsondesouza - Updated & Fixed */
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* FLOATING CONTAINER */
 .example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
   position: fixed;
   left: 25px;
   bottom: 25px;
-  z-index: 9999;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  row-gap: 12px;
+  z-index: 9999;
 }
 
-/* ICON WRAPPER */
 .example-2 .icon-content {
   position: relative;
 }
@@ -10572,22 +10589,23 @@ ul {
 .example-2 .icon-content .tooltip {
   position: absolute;
   top: 50%;
-  left: 65px;                 /* tooltip on left side */
+  left: 110%;
   transform: translateY(-50%);
   color: #fff;
-  padding: 6px 10px;
-  border-radius: 5px;
+  padding: 6px 12px;
+  border-radius: 6px;
   opacity: 0;
   visibility: hidden;
   font-size: 14px;
-  transition: all 0.3s ease;
   white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
 /* SHOW TOOLTIP */
 .example-2 .icon-content:hover .tooltip {
   opacity: 1;
   visibility: visible;
+ 
 }
 
 /* ICON BUTTON */
@@ -10601,40 +10619,41 @@ ul {
   height: 52px;
   border-radius: 50%;
   color: #4d4d4d;
-  background-color: #fff;
+  background-color: #ffffff;
   transition: all 0.3s ease-in-out;
 }
 
-/* HOVER SHADOW */
+/* HOVER EFFECT */
 .example-2 .icon-content a:hover {
-  box-shadow: 0 10px 35px rgb(0 0 0 / 25%);
-  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  color: #ffffff;
 }
 
-/* ICON */
+/* SVG ICON */
 .example-2 .icon-content a svg {
   position: relative;
   z-index: 1;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
 }
 
-/* FILL EFFECT */
+/* FILL ANIMATION */
 .example-2 .icon-content a .filled {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 0;
-  background-color: #000;
-  transition: all 0.3s ease-in-out;
+  border-radius: 100%;   /* 👈 ADD THIS */
+  transition: height 0.3s ease-in-out;
+  z-index: 0;
 }
-
 .example-2 .icon-content a:hover .filled {
   height: 100%;
 }
 
 /* SOCIAL COLORS */
+
 .example-2 .icon-content a[data-social="linkedin"] .filled,
 .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
   background-color: #0274b3;
