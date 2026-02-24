@@ -10,28 +10,18 @@
             ul.common-header-ul
               li.dropdown.mega-dropdown
                 a.dropdown-toggle(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false')
-                  | What we do
+                  | Our service
                   i.ph-caret-down
                 .dropdown-menu.mega-dropdown-menu
                   .container
                     .row
                       .col-md-4.link-col-left
                         #v-pills-tab.nav-pills(href='#' role='tablist' aria-orientation='vertical')
-                          a#v-pills-services-tab.nav-link-a(href='#' data-bs-toggle='pill' data-bs-target='#v-pills-services' type='button' role='tab' aria-controls='v-pills-services' aria-selected='false')  Development &amp; Engineering Services 
+                          a#v-pills-services-tab.nav-link-a.active(href='#' data-bs-toggle='pill' data-bs-target='#v-pills-services' type='button' role='tab' aria-controls='v-pills-services' aria-selected='true')  Development &amp; Engineering Services 
                           a#v-pills-industry-tab.nav-link-a(href='#' data-bs-toggle='pill' data-bs-target='#v-pills-industry' type='button' role='tab' aria-controls='v-pills-industry' aria-selected='false') Business, Growth &amp; Support Services 
-                          a#v-pills-products-tab.nav-link-a(href='overview.html' data-bs-toggle='pill' data-bs-target='#v-pills-products' type='button' role='tab' aria-controls='v-pills-products' aria-selected='false') About Us
                       .col-md-8.link-col-right
                         #v-pills-tabContent.tab-content
-                          #v-pills-overview.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-overview-tab' tabindex='0')
-                            .menu-para
-                              h6 Start Your Digital Transformation.
-                              p.para
-                                | Calling India home, while transforming stories in 50+ countries, Mamo has helped industry leaders innovate ahead for 20+ years, leveraging the best, most robust, and the most exciting digital technologies out there. Here&rsquo;s our story.
-                              p
-                                a.know-more-btn(href='about-us')
-                                  | Know
-                                  | More
-                          #v-pills-services.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-services-tab' tabindex='0')
+                          #v-pills-services.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='v-pills-services-tab' tabindex='0')
                             .menu-para
                               h6 Development &amp; Engineering Services
                               .row
@@ -59,7 +49,8 @@
                                     a.nav-link-b(href='/virtual-assistant-services')
                                       | Virtual Assistant Services
                                     a.nav-link-b(href='/packaging-design') Packaging Design Services
-                          #v-pills-products.tab-pane.fade(role='tabpanel' aria-labelledby='v-pills-products-tab' tabindex='0')
+              li
+                a(href='/about-us') About Us
               li.dropdown.mega-dropdown
                 a.dropdown-toggle(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside' aria-expanded='false')
                   | Blog
@@ -98,12 +89,10 @@
         nav#column_left
           ul.nav-list
             li
-              a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu1' aria-expanded='false') What we do&nbsp;
+              a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu1' aria-expanded='false') Our services&nbsp;
               ul#submenu1.nav-list.collapse(aria-expanded='false')
                 li
-                  // <a href="overview">Overview</a>
-                li
-                  a(data-bs-toggle='collapse' data-bs-target='#submenu2' aria-expanded='false') Development &amp; Engineering Services 
+                  a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu2' aria-expanded='false') Development &amp; Engineering Services 
                   ul#submenu2.nav-list.collapse(aria-expanded='false')
                     li
                       a(href='/software-development') Software Development
@@ -123,7 +112,7 @@
                       a(href='/qa-testing')
                         | QA and Software Testing
                 li
-                  a(data-bs-toggle='collapse' data-bs-target='#submenu3' aria-expanded='false') Business, Growth &amp; Support Services 
+                  a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu3' aria-expanded='false') Business, Growth &amp; Support Services 
                   ul#submenu3.nav-list.collapse(aria-expanded='false')
                     li
                       a(href='/itstaff-augmentation') IT Staff Augmentation
@@ -136,8 +125,8 @@
                     li
                       a(href='/packaging-design')
                         | Packaging Design Services
-                li
-                  a(href='about-us') About us
+            li
+              a(href='/about-us') About Us
             li
               a.accordion-heading(data-bs-toggle='collapse' data-bs-target='#submenu31' aria-expanded='false')
                 | Blog

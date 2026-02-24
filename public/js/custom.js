@@ -573,13 +573,20 @@ const mobileMenuToggleInit = () => {
       }
     });
     
-    // Close mobile menu when clicking on a non-accordion link
+    // Close mobile menu when clicking on a non-accordion link (but not on accordion headings or their children)
     const mobileLinks = mobileMenu.querySelectorAll('a:not(.accordion-heading)');
     mobileLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.style.display = 'none';
-        newToggleMenu.classList.remove('on');
-        document.body.style.overflow = '';
+      link.addEventListener('click', function(e) {
+        // Only close menu if it's a final destination link (not a parent accordion)
+        const parentLi = this.closest('li');
+        const hasSubmenu = parentLi && parentLi.querySelector('.collapse');
+        
+        // Don't close if this link has a submenu
+        if (!hasSubmenu) {
+          mobileMenu.style.display = 'none';
+          newToggleMenu.classList.remove('on');
+          document.body.style.overflow = '';
+        }
       });
     });
     
