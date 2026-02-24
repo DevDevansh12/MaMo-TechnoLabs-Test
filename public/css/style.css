@@ -4032,10 +4032,12 @@ span.we-re-hiring {
 .common-home-sect2 .content-box .common-sect-para {
     display: flex;
     justify-content: flex-end;
-    margin-top: 90px;
+    align-items: center;
+    margin-top: 0;
     margin-bottom: 0;
     position: relative;
     z-index: 9;
+    min-height: calc(100vh - 150px);
 }
 /* 
 @media screen and (max-width:767px) {
@@ -4051,8 +4053,8 @@ span.we-re-hiring {
 
 .common-home-sect2 .heading {
     max-width: 600px;
-    float: right;
-    text-align: right
+    text-align: right;
+    padding-top: 90px;
 }
 
 .common-home-sect2 .heading h2 {
@@ -4139,7 +4141,7 @@ span.we-re-hiring {
     .common-home-sect2 .heading {
         max-width: 100%;
         float: none;
-        text-align: right;
+        text-align: left;
         padding: 0 20px;
     }
     
@@ -4147,7 +4149,7 @@ span.we-re-hiring {
         margin-top: 15px;
         padding-right: 0;
         font-size: 14px;
-        text-align: right;
+        text-align: left;
     }
 }
 
@@ -4160,24 +4162,53 @@ span.we-re-hiring {
 .common-home-sect2 .scroll-img {
     width: auto;
     position: absolute;
-    top: -95px;
-    left: -175px
+    top: 50%;
+    left: -175px;
+    transform: translateY(-50%);
 }
 
 @media screen and (max-width:767px) {
     .common-home-sect2 .scroll-img {
-        min-height: 215px;
-        width: 174%;
-        position: left;
-        right: 0;
+        min-height: auto;
+        width: 100%;
+        position: relative;
+        left: 0;
         top: 0;
-        margin-bottom: 20px
+        transform: none;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
     }
     
     .common-home-sect2 .scroll-img .scroll-img-w {
         width: 100%;
+        max-width: 100%;
         height: auto;
-        margin-top: 0
+        margin-top: 0;
+    }
+    
+    .common-home-sect2 .content-box .common-sect-para {
+        min-height: auto;
+        margin-top: 0;
+        margin-bottom: 20px;
+        justify-content: flex-start;
+        padding: 0 20px;
+    }
+    
+    .common-home-sect2 .heading {
+        max-width: 100%;
+        text-align: left;
+        padding-top: 0;
+    }
+    
+    .common-home-sect2 .heading .para {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    
+    .common-home-sect2 .carousel-item .head {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -4187,9 +4218,10 @@ span.we-re-hiring {
 
 @media screen and (max-width:767px) {
     .common-home-sect2 .scroll-img img {
-        max-width: inherit;
-        min-height: 215px;
-        width: 100%
+        max-width: 100%;
+        min-height: auto;
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -4269,10 +4301,11 @@ span.we-re-hiring {
 @media screen and (max-width:767px) {
     #common-home-sect2-wrap .common-home-sect2 {
         align-items: flex-start;
-        padding-top: 120px;
+        padding-top: 20px;
         height: auto;
-        min-height: 100vh;
-        padding-bottom: 40px;
+        min-height: auto;
+        padding-bottom: 20px;
+        position: relative;
     }
 }
 
@@ -7419,7 +7452,7 @@ body .common-footer-wrapper-outer #vibe-section .slick-carousel-vibe .slick-list
     }
 }
 .hero-bg {
-    background-image: url("../images/hero.png"); 
+    background-image: url("../images/hero.webp"); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8668,6 +8701,7 @@ button.learn-more .button-text {
  line-height: 1.6;
  text-align: center;
  text-transform: uppercase;
+ z-index: 10;
 }
 
 button:hover .circle {
@@ -8680,7 +8714,7 @@ button:hover .circle .icon.arrow {
 }
 
 button:hover .button-text {
- color: #fff;
+ color: #000;
 }
 /* From Uiverse.io by Gaurang7717 */ 
 /* Wrapper holding both buttons */
@@ -10201,7 +10235,7 @@ h2 {
   overflow: hidden;
   transition-duration: 0.3s;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-  background-color: rgb(55, 208, 55);
+  background: linear-gradient(90deg, #35F729, #78E588, #2CD73A, #03C0C7);
 }
 
 .sign {
@@ -10234,6 +10268,7 @@ h2 {
   width: 150px;
   border-radius: 40px;
   transition-duration: 0.3s;
+  background: linear-gradient(90deg, #35F729, #78E588, #2CD73A, #03C0C7);
 }
 
 .Btn:hover .sign {
@@ -10247,6 +10282,7 @@ h2 {
   width: 70%;
   transition-duration: 0.3s;
   padding-right: 10px;
+  color: #000;
 }
 .Btn:active {
   transform: translate(2px, 2px);

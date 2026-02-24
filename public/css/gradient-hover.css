@@ -1,6 +1,4 @@
-/* Gradient Hover Styles - Override Blue Colors Globally */
-
-/* Gradient color definition */
+/* 
 .text-gradient-hover {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%);
     -webkit-background-clip: text;
@@ -8,7 +6,6 @@
     background-clip: text;
 }
 
-/* Header navigation links hover */
 .common-header .common-header-ul > li > a:hover {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
     -webkit-background-clip: text !important;
@@ -16,7 +13,6 @@
     background-clip: text !important;
 }
 
-/* Dropdown navigation links hover */
 .nav-link-a:hover,
 .nav-link-a.active {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
@@ -32,10 +28,10 @@
     background-clip: text !important;
 }
 
-/* General link hover - most important override */
-a:hover,
-a:focus,
-a:active {
+
+a:hover:not(.btn):not(.contact-btn):not(.mobile-contact-btn):not(.learn-more):not(.Btn):not(.whatsapp-link):not(.btn-click):not(.cta-button),
+a:focus:not(.btn):not(.contact-btn):not(.mobile-contact-btn):not(.learn-more):not(.Btn):not(.whatsapp-link):not(.btn-click):not(.cta-button),
+a:active:not(.btn):not(.contact-btn):not(.mobile-contact-btn):not(.learn-more):not(.Btn):not(.whatsapp-link):not(.btn-click):not(.cta-button) {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
@@ -43,9 +39,9 @@ a:active {
     text-decoration: none !important;
 }
 
-/* Specific link types */
-.nav-link:hover,
-.nav-link:focus {
+
+.nav-link:hover:not(.btn):not(.contact-btn):not(.mobile-contact-btn),
+.nav-link:focus:not(.btn):not(.contact-btn):not(.mobile-contact-btn) {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
@@ -53,7 +49,6 @@ a:active {
     text-decoration: none !important;
 }
 
-/* Dropdown items hover */
 .dropdown-item:focus,
 .dropdown-item:hover {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
@@ -63,17 +58,32 @@ a:active {
     text-decoration: none !important;
 }
 
-/* Button text hover */
 .btn:hover,
 .btn:focus,
-.btn:active {
-    background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+.btn:active,
+.contact-btn:hover,
+.contact-btn:focus,
+.mobile-contact-btn:hover,
+.mobile-contact-btn:focus,
+button.learn-more:hover,
+button.learn-more:focus,
+button.Btn:hover,
+button.Btn:focus,
+.btn-click:hover,
+.btn-click:focus,
+.button-text:hover,
+.whatsapp-link:hover,
+.cta-button:hover,
+.cta-button:focus,
+.cta-button:active {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    background-clip: unset !important;
+    color: inherit !important;
 }
 
-/* Footer links hover */
+
 .common-footer2 .footer-left a:hover {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
     -webkit-background-clip: text !important;
@@ -90,12 +100,11 @@ a:active {
     text-decoration: underline !important;
 }
 
-/* Social links hover */
+
 .social-ul li a:hover {
     border: 1px solid #00ED87 !important;
 }
 
-/* Card links and other interactive elements */
 .products-card:hover em .ph.ph-arrow-up-right,
 .stories-card:hover h6,
 .stories-card:hover p,
@@ -106,7 +115,6 @@ a:active {
     background-clip: text !important;
 }
 
-/* Back button hover */
 a.back-btn:hover {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
     -webkit-background-clip: text !important;
@@ -114,7 +122,6 @@ a.back-btn:hover {
     background-clip: text !important;
 }
 
-/* Dark mode overrides */
 .dark-body .common-header-col-outer .nav-link-a:hover,
 .dark-body .common-header-col-outer .nav-link-a.active {
     background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
@@ -128,16 +135,4 @@ a.back-btn:hover {
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
-}
-
-/* Override any remaining blue colors */
-*:hover {
-    color: inherit;
-}
-
-a:hover:not(.btn):not(.contact-btn):not(.mobile-contact-btn) {
-    background: linear-gradient(90deg, #00ED87 0%, #034EA2 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-}
+} */
