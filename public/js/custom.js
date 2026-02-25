@@ -1,7 +1,8 @@
 // ======= Coming Soon Countdown =======
 const countdownInit = () => {
 
-  
+  // Set your launch date here (format: "Month Day, Year HH:MM:SS")
+  const launchDate = new Date("Dec 31, 2026 23:59:59").getTime();
 
   const x = setInterval(function () {
 
@@ -40,4 +41,3 @@ const countdownInit = () => {
   }, 1000);
 };
 document.addEventListener('DOMContentLoaded', countdownInit);
-

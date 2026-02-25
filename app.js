@@ -223,7 +223,7 @@ app.post('/admin/blog', isAuthenticated, upload.single('bannerImage'), async (re
       author: 'MaMo TechnoLabs',
       publisher: {
         name: 'MaMo TechnoLabs',
-        logo: '/images/logo.png'
+        logo: '/images/logo.webp'
       },
       createdAt: new Date(),
       updatedAt: new Date()

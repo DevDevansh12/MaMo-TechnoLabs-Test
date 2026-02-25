@@ -20,7 +20,7 @@ block content
         "name": "#{blog.publisher ? blog.publisher.name : 'MaMo TechnoLabs'}",
         "logo": {
           "@type": "ImageObject",
-          "url": "http://localhost:3001#{blog.publisher && blog.publisher.logo ? blog.publisher.logo : '/images/logo.png'}"
+          "url": "http://localhost:3001#{blog.publisher && blog.publisher.logo ? blog.publisher.logo : '/images/logo.webp'}"
         }
       },
       "datePublished": "#{blog.createdAt.toISOString()}",

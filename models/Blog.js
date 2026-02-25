@@ -20,7 +20,7 @@ const blogSchema = new mongoose.Schema({
     },
     logo: {
       type: String,
-      default: '/public/images/logo.png'
+      default: '/public/images/logo.webp'
     }
   },
   createdAt: {
